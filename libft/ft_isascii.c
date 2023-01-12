@@ -6,13 +6,13 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:00:15 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/10 14:01:49 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:33:48 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c);
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
