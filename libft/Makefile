@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:16:59 by lpeeters          #+#    #+#              #
-#    Updated: 2023/01/16 10:47:06 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/01/16 17:06:15 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,11 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
        ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
        ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
        ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+	ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+	ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJS = ${SRCS:.c=.o}
+BOBJS = ${BSRCS:.c=.o}
 NAME = libft.a
 LIBC = ar rcs
 CC = cc
@@ -35,20 +39,23 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${BOBJS}
 
 fclean: clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${bonus}
 
 re: fclean all
 
-CNAME= libft.so
+bonus: ${NAME} ${BOBJS}
+	${LIBC} ${NAME} ${BOBJS}
+
+CNAME = libft.so
 
 cso: fclean
 	${RM} ${CNAME}
 
 so:
-	${CC} -nostartfiles -fPIC ${CFLAGS} -c ${SRCS}
-	gcc -nostartfiles -shared -o libft.so ${OBJS}
+	${CC} -nostartfiles -fPIC ${CFLAGS} -c ${SRCS} ${BSRCS}
+	gcc -nostartfiles -shared -o libft.so ${OBJS} ${BOBJS}
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
