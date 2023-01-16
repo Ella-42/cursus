@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 18:16:59 by lpeeters          #+#    #+#              #
-#    Updated: 2023/01/12 18:31:45 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/01/16 10:47:06 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,5 +41,14 @@ fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
+
+CNAME= libft.so
+
+cso: fclean
+	${RM} ${CNAME}
+
+so:
+	${CC} -nostartfiles -fPIC ${CFLAGS} -c ${SRCS}
+	gcc -nostartfiles -shared -o libft.so ${OBJS}
 
 .PHONY : all clean fclean re

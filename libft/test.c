@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 13:02:40 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/16 15:14:58 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/16 11:04:04 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/16 11:34:53 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <strings.h>
+#include <stdio.h>
 
-char
-	*ft_substr(char const *s, unsigned int start, size_t len)
+int	main(void)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	const char	*haystack;
+	const char	*needle;
+	char		*ptr;
 
-	if (!s)
-		return (NULL);
-	if (len > ft_strlen(s) - start)
-		len = ft_strlen(s) - start;
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = 0;
-	return (str);
+	haystack = "Foo Bar Baz";
+	needle = "Bar";
+	ptr = strnstr(haystack, needle, 4);
+	printf(ptr);
 }

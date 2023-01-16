@@ -6,13 +6,14 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 13:47:49 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/12 18:36:35 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:40:59 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 
