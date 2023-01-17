@@ -1,1 +1,1 @@
-rm -rf github
+rm -rf github libft
