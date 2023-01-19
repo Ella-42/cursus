@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:31:03 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/17 18:49:02 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:56:34 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int	ft_putptr(uintptr_t ptr)
 	int	char_printed;
 
 	char_printed = 0;
+	char_printed += write(1, "0x", 2);
 	if (ptr == 0)
-		char_printed += write(1, "(nil)", 5);
+		char_printed += write(1, "0", 1);
 	else
 	{
-		char_printed += write(1, "0x", 2);
 		ft_put_ptr(ptr);
 		char_printed += len_ptr(ptr);
 	}
