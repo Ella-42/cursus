@@ -1,1 +1,1 @@
-rm -rf github libft
+rm -rf github libft ft_printf
