@@ -1,29 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isdup.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 17:03:38 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/02/01 17:03:40 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/03/01 16:39:37 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/03/01 19:23:26 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <stdlib.h>
-# include <fcntl.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <unistd.h>
+#include "../push_swap.h"
 
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *line, char *buff);
-char	*ft_strchr(char *s, int c);
-size_t	ft_strlen(char *s);
-char	*new_line(char *line);
-char	*ft_get_line(int fd, char *line);
-char	*ft_get_next_line(char	*line);
+int	ft_strcmp(char *s1, char *s2)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_isdup(int ac, char **av)
+{
+	size_t	l;
+	size_t	k;
+	size_t	j;
+
+	l = ac;
+	k = 1;
+	while (k < l)
+	{
+		j = k + 1;
+		while (j < l)
+		{
+			if (!ft_strcmp(av[k], av[j]))
+				return (1);
+			j++;
+		}
+		k++;
+	}
+	return (0);
+}
