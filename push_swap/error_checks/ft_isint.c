@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 10:15:02 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/07 19:13:50 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/16 02:34:58 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@ int	ft_ismmint(char *str)
 		if (num * sign > 2147483647 || num * sign < -2147483647 -1)
 			return (1);
 	}
-	return (0);
-}
-
-/*check if int is numeric*/
-
-int	ft_isdigit(int c)
-{
-	if (c >= 48 && c <= 57)
-		return (1);
 	return (0);
 }
 

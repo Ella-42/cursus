@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:47:13 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/10 13:45:42 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/10 13:54:44 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_isalnum(int c)
 {
-	ft_error_check(ac, av);
-	ft_linked_list(ac, av);
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c >= 48 && c <= 57))
+		return (1);
+	return (0);
 }

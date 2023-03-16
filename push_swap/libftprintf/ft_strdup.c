@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:47:13 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/11 18:14:14 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/11 18:21:50 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *src)
 {
-	ft_error_check(ac, av);
-	ft_linked_list(ac, av);
+	size_t	size;
+	char	*dest;
+
+	size = ft_strlen(src);
+	dest = (char *)malloc(size * sizeof(char) + 1);
+	if (dest == NULL)
+		return (0);
+	ft_memcpy(dest, src, size);
+	dest[size] = '\0';
+	return (dest);
 }

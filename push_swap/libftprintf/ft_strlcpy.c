@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:47:13 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/11 12:50:49 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/12 18:35:03 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	ft_error_check(ac, av);
-	ft_linked_list(ac, av);
+	size_t	i;
+
+	i = 0;
+	if (size != 0)
+	{
+		while (src [i] != '\0' && i < (size - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (ft_strlen(src));
 }

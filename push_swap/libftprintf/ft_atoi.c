@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:47:13 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/11 17:45:11 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/12 18:37:53 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_atoi(const char *str)
 {
-	ft_error_check(ac, av);
-	ft_linked_list(ac, av);
+	int					i;
+	int					s;
+	unsigned long int	r;
+
+	i = 0;
+	s = 1;
+	r = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-')
+	{
+		s = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (ft_isdigit(str[i]))
+	{
+		r *= 10;
+		r += str[i] - '0';
+		i++;
+	}
+	return (r * s);
 }

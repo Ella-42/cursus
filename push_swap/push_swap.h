@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/13 22:25:33 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/16 02:52:14 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+# include "libftprintf/libft.h"
+# include "libftprintf/ft_printf.h"
 
 /****************************************************/
 /*                                                  */
@@ -32,10 +34,16 @@
 /*             (./)             */
 
 /********************************/
+/*       ft_linked_list.c       */
+/********************************/
+
+int	ft_linked_list(int ac, char **av);
+
+/********************************/
 /*          ft_utils.c          */
 /********************************/
 
-int	ft_atoi(char *str);
+int	ft_satoi(char *str);
 
 /****************************************************/
 /*                                                  */
@@ -56,7 +64,6 @@ int	ft_error_check(int ac, char **av);
 /********************************/
 
 int	ft_ismmint(char *str);
-int	ft_isdigit(int c);
 int	ft_isint(char *str);
 
 /********************************/

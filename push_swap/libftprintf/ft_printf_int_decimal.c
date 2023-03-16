@@ -1,35 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_printf_int_decimal.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 22:03:39 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:23:42 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/17 16:28:03 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/03/16 02:37:16 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	ft_uatoi(char *str)
+char	*ft_char(char *s, unsigned int number, int len)
 {
-	int		n;
-	int		s;
-	int		i;
+	while (number > 0)
+	{
+		s[len--] = 48 + (number % 10);
+		number = number / 10;
+	}
+	return (s);
+}
 
-	n = 0;
-	s = 1;
-	i = 0;
-	if (str[i] == '-')
+int	ft_len(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		s = -1;
-		i++;
+		len++;
+		n = n / 10;
 	}
-	while (str[i] != '\0')
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (n * s);
+	return (len);
+}
+
+int	ft_putnbr(int n)
+{
+	int		len;
+	char	*num;
+
+	num = ft_itoa(n);
+	len = ft_putstr(num);
+	free(num);
+	return (len);
 }

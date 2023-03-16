@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 22:03:39 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:23:42 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/12 13:02:40 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/16 15:14:58 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_uatoi(char *str)
+char
+	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		n;
-	int		s;
-	int		i;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	n = 0;
-	s = 1;
+	if (!s)
+		return (NULL);
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	str = (char *)malloc(sizeof(*s) * (len + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	if (str[i] == '-')
+	j = 0;
+	while (s[i])
 	{
-		s = -1;
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	while (str[i] != '\0')
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (n * s);
+	str[j] = 0;
+	return (str);
 }

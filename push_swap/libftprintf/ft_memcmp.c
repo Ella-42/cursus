@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:47:13 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/11 16:20:29 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/01/11 16:27:36 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_error_check(ac, av);
-	ft_linked_list(ac, av);
+	unsigned char	*ptr;
+	unsigned char	*ptr1;
+
+	if (n == 0)
+		return (0);
+	ptr = (unsigned char *)s1;
+	ptr1 = (unsigned char *)s2;
+	while ((*ptr == *ptr1) && n - 1 > 0)
+	{
+		ptr++;
+		ptr1++;
+		n--;
+	}
+	return ((int)(*ptr - *ptr1));
 }
