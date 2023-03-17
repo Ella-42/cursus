@@ -1,53 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdup.c                                         :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 16:39:37 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 05:14:26 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/03/17 16:56:56 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/03/17 17:02:58 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*compares two strings*/
-
-int	ft_strcmp(char *s1, char *s2)
+void	sb(t_node **head)
 {
-	size_t	i;
+	t_node	*tmp1;
+	t_node	*tmp2;
 
-	i = 0;
-	while (s1[i] || s2[i])
-	{
-		if (s1[i] != s2[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-/*checks for duplicates*/
-
-int	ft_isdup(int ac, char **av)
-{
-	size_t	l;
-	size_t	k;
-	size_t	j;
-
-	l = ac;
-	k = 1;
-	while (k < l)
-	{
-		j = k + 1;
-		while (j < l)
-		{
-			if (!ft_strcmp(av[k], av[j]))
-				return (1);
-			j++;
-		}
-		k++;
-	}
-	return (0);
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	tmp1 = *head;
+	tmp2 = (*head)->next;
+	tmp1->next = tmp2->next;
+	*head = tmp2;
+	(*head)->next = tmp1;
+	write(1, "sb\n", 3);
 }

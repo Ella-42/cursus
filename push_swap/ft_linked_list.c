@@ -6,17 +6,13 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 22:36:43 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/17 17:12:19 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-typedef struct node
-{
-	int			val;
-	struct node	*next;
-}				t_node;
+/*converts input into a linked list*/
 
 t_node	*ft_create_linked_list(int ac, char **av)
 {
@@ -47,6 +43,8 @@ t_node	*ft_create_linked_list(int ac, char **av)
 	return (head);
 }
 
+/*testing*/
+
 int	ft_linked_list(int ac, char **av)
 {
 	t_node	*head;
@@ -55,8 +53,10 @@ int	ft_linked_list(int ac, char **av)
 	head = ft_create_linked_list(ac, av);
 	if (head == NULL)
 		return (1);
-	write(1, "Linked list values: ", 20);
+	sa(&head);
+//	sb(&head);
 	current = head;
+	write(1, "Linked list values: ", 20);
 	while (current != NULL)
 	{
 		ft_printf("%d ", current->val);
@@ -64,4 +64,9 @@ int	ft_linked_list(int ac, char **av)
 	}
 	write(1, "\n", 1);
 	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	ft_linked_list(ac, av);
 }
