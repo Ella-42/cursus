@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 06:18:19 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:21:21 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int	main(int ac, char **av)
 {
 	if (ft_error_check(ac, av))
 		return (1);
-	ft_create_linked_list(ac, av);
+	ft_lla(ac, av);
+	ft_llb();
 }*/

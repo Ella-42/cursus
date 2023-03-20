@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 04:51:15 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 17:16:15 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:02:33 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 /*swaps first two elements of the list*/
 
-void	sa(t_node **head)
+void	sa(t_node **stack_a)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	tmp1 = *head;
-	tmp2 = (*head)->next;
+	tmp1 = *stack_a;
+	tmp2 = (*stack_a)->next;
 	tmp1->next = tmp2->next;
-	*head = tmp2;
-	(*head)->next = tmp1;
+	*stack_a = tmp2;
+	(*stack_a)->next = tmp1;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_node **head)
+void	sb(t_node **stack_b)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
-	tmp1 = *head;
-	tmp2 = (*head)->next;
+	tmp1 = *stack_b;
+	tmp2 = (*stack_b)->next;
 	tmp1->next = tmp2->next;
-	*head = tmp2;
-	(*head)->next = tmp1;
+	*stack_b = tmp2;
+	(*stack_b)->next = tmp1;
 	write(1, "sb\n", 3);
 }
 

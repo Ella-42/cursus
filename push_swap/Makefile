@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/16 03:49:17 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/03/20 15:12:16 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,9 +68,6 @@ fclean: clean
 	${RM} ${NAME} ${CNAME}
 
 re: fclean all
-
-#run: ${NAME} 
-#	chmod +x push_swap
 
 CNAME = libft.so
 

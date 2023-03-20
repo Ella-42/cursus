@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 17:04:24 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:30:08 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ typedef struct node
 /*       ft_linked_list.c       */
 /********************************/
 
-t_node	*ft_create_linked_list(int ac, char **av);
+t_node	*ft_lla(int ac, char **av);
+t_node	*ft_llb(void);
 
 /********************************/
 /*          ft_utils.c          */
@@ -94,15 +95,17 @@ int		ft_isdup(int ac, char **av);
 /*       (./operations/)      */
 
 /********************************/
-/*             sa.c             */
+/*             ss.c             */
 /********************************/
 
-void	sa(t_node **head);
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
 
 /********************************/
-/*             sb.c             */
+/*             pp.c             */
 /********************************/
 
-void	sb(t_node **head);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_b, t_node **stack_a);
 
 #endif
