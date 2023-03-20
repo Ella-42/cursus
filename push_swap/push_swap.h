@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 16:30:08 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:22:31 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,12 @@ void	sb(t_node **stack_b);
 
 void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_b, t_node **stack_a);
+
+/********************************/
+/*             rr.c             */
+/********************************/
+
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
 
 #endif

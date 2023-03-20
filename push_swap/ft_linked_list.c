@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 17:30:22 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:46:43 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	ft_ll(int ac, char **av)
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
+	ra(&stack_a);
 //	pa(&stack_a, &stack_b);
 //	pa(&stack_a, &stack_b);
 	current1 = stack_a;
