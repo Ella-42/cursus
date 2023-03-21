@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 21:00:17 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:49:57 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,13 +95,6 @@ int		ft_isdup(int ac, char **av);
 /*       (./operations/)      */
 
 /********************************/
-/*             ss.c             */
-/********************************/
-
-void	sa(t_node **stack_a);
-void	sb(t_node **stack_b);
-
-/********************************/
 /*             pp.c             */
 /********************************/
 
@@ -109,11 +102,21 @@ void	pa(t_node **stack_a, t_node **stack_b);
 void	pb(t_node **stack_b, t_node **stack_a);
 
 /********************************/
+/*             ss.c             */
+/********************************/
+
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
+
+/********************************/
 /*             rr.c             */
 /********************************/
 
 void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
+void	to_last_node(t_node **last_node_a, t_node **last_node_b);
+void	rr(t_node **stack_a, t_node **stack_b);
 
 /********************************/
 /*            rrr.c             */
@@ -121,4 +124,8 @@ void	rb(t_node **stack_b);
 
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
+void	to_second_to_last(t_node **last_node_a, t_node **last_node_b,
+			t_node **second_to_last_node_a, t_node **second_to_last_node_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
+
 #endif

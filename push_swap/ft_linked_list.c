@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/21 11:04:02 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:52:23 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,22 @@ int	ft_ll(int ac, char **av)
 	stack_b = ft_llb();
 	if (stack_a == NULL)
 		return (1);
-	sa(&stack_a);
+//	sa(&stack_a);
+//	sb(&stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
-	ra(&stack_a);
-	rb(&stack_b);
+//	ra(&stack_a);
+//	rb(&stack_b);
+//	rr(&stack_a, &stack_b);
 	rra(&stack_a);
 	rrb(&stack_b);
-	sa(&stack_a);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
+//	rrr(&stack_a, &stack_b);
+//	sa(&stack_a);
+//	pa(&stack_a, &stack_b);
+//	pa(&stack_a, &stack_b);
+//	pa(&stack_a, &stack_b);
+//	ss(&stack_a, &stack_b);
 	current1 = stack_a;
 	write(1, "Linked list values stack_a: ", 28);
 	while (current1 != NULL)

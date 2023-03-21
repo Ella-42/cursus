@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:11:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/21 11:05:27 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/21 23:19:06 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 void	ra(t_node **stack_a)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	t_node	*last_node;
+	t_node	*first_value;
 
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
-	tmp1 = *stack_a;
-	tmp2 = tmp1;
+	last_node = *stack_a;
+	first_value = last_node;
 	*stack_a = (*stack_a)->next;
-	while (tmp1->next != NULL)
-		tmp1 = tmp1->next;
-	tmp1->next = (t_node *)malloc(sizeof(t_node));
-	tmp1->next->val = tmp2->val;
-	tmp1->next->next = NULL;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+	last_node->next = (t_node *)malloc(sizeof(t_node));
+	last_node->next->val = first_value->val;
+	last_node->next->next = NULL;
 	write(1, "ra\n", 3);
 }
 
@@ -36,18 +36,57 @@ void	ra(t_node **stack_a)
 
 void	rb(t_node **stack_b)
 {
-	t_node	*tmp1;
-	t_node	*tmp2;
+	t_node	*last_node;
+	t_node	*first_value;
 
 	if (*stack_b == NULL || (*stack_b)->next == NULL)
 		return ;
-	tmp1 = *stack_b;
-	tmp2 = tmp1;
+	last_node = *stack_b;
+	first_value = last_node;
 	*stack_b = (*stack_b)->next;
-	while (tmp1->next != NULL)
-		tmp1 = tmp1->next;
-	tmp1->next = (t_node *)malloc(sizeof(t_node));
-	tmp1->next->val = tmp2->val;
-	tmp1->next->next = NULL;
+	while (last_node->next != NULL)
+		last_node = last_node->next;
+	last_node->next = (t_node *)malloc(sizeof(t_node));
+	last_node->next->val = first_value->val;
+	last_node->next->next = NULL;
 	write(1, "rb\n", 3);
+}
+
+/*traverses to last node*/
+
+void	to_last_node(t_node **last_node_a, t_node **last_node_b)
+{
+	while ((*last_node_a)->next != NULL || (*last_node_b)->next != NULL)
+	{
+		*last_node_a = (*last_node_a)->next;
+		*last_node_b = (*last_node_b)->next;
+	}
+}
+
+/*rotates both stack a and b up*/
+
+void	rr(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*last_node_a;
+	t_node	*last_node_b;
+	t_node	*first_value_a;
+	t_node	*first_value_b;
+
+	if ((*stack_a == NULL || (*stack_a)->next == NULL)
+		|| (*stack_b == NULL || (*stack_b)->next == NULL))
+		return ;
+	last_node_a = *stack_a;
+	last_node_b = *stack_b;
+	first_value_a = last_node_a;
+	first_value_b = last_node_b;
+	*stack_a = (*stack_a)->next;
+	*stack_b = (*stack_b)->next;
+	to_last_node(&last_node_a, &last_node_b);
+	last_node_a->next = (t_node *)malloc(sizeof(t_node));
+	last_node_b->next = (t_node *)malloc(sizeof(t_node));
+	last_node_a->next->val = first_value_a->val;
+	last_node_b->next->val = first_value_b->val;
+	last_node_a->next->next = NULL;
+	last_node_b->next->next = NULL;
+	write(1, "rr\n", 3);
 }
