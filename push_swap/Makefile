@@ -6,12 +6,13 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/20 15:12:16 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/03/21 23:54:31 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = error_checks/ft_error_check.c error_checks/ft_isdup.c \
-       error_checks/ft_isint.c ft_utils.c push_swap.c ft_linked_list.c
+       error_checks/ft_isint.c ft_utils.c push_swap.c ft_linked_list.c \
+       operations/pp.c operations/ss.c operations/rr.c operations/rrr.c
 
 PSRCS = libftprintf/ft_isalpha.c libftprintf/ft_isdigit.c \
        libftprintf/ft_isalnum.c libftprintf/ft_isascii.c \

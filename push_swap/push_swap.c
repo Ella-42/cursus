@@ -6,18 +6,18 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 16:21:21 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/22 00:05:03 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*checks for errors, prints actions needed to sort input*/
-/*
+
 int	main(int ac, char **av)
 {
 	if (ft_error_check(ac, av))
 		return (1);
 	ft_lla(ac, av);
 	ft_llb();
-}*/
+}
