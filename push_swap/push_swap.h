@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 19:22:31 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:00:17 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,10 @@ void	pb(t_node **stack_b, t_node **stack_a);
 void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
 
+/********************************/
+/*            rrr.c             */
+/********************************/
+
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
 #endif

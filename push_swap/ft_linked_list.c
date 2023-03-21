@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 19:46:43 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:04:02 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_node	*ft_llb(void)
 }
 
 /*testing*/
-
+/*
 int	ft_ll(int ac, char **av)
 {
 	t_node	*stack_a;
@@ -65,13 +65,17 @@ int	ft_ll(int ac, char **av)
 	if (stack_a == NULL)
 		return (1);
 	sa(&stack_a);
-//	sb(&stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
 	ra(&stack_a);
-//	pa(&stack_a, &stack_b);
-//	pa(&stack_a, &stack_b);
+	rb(&stack_b);
+	rra(&stack_a);
+	rrb(&stack_b);
+	sa(&stack_a);
+	pa(&stack_a, &stack_b);
+	pa(&stack_a, &stack_b);
+	pa(&stack_a, &stack_b);
 	current1 = stack_a;
 	write(1, "Linked list values stack_a: ", 28);
 	while (current1 != NULL)
@@ -95,3 +99,4 @@ int	main(int ac, char **av)
 {
 	ft_ll(ac, av);
 }
+*/

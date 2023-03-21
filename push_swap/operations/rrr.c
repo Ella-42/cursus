@@ -1,47 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pp.c                                               :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 15:14:56 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/21 11:12:21 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/03/20 20:50:25 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/03/21 11:03:04 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*pushes top item of stack b to top of stack a*/
+/*rotates stack a down*/
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	rra(t_node **stack_a)
 {
 	t_node	*tmp1;
 	t_node	*tmp2;
 
-	if (*stack_b == NULL)
-		return ;
-	tmp1 = *stack_b;
-	tmp2 = *stack_a;
-	*stack_a = tmp1;
-	*stack_b = tmp1->next;
-	tmp1->next = tmp2;
-	write(1, "pa\n", 3);
-}
-
-/*pushes top item of stack a to top of stack b*/
-
-void	pb(t_node **stack_b, t_node **stack_a)
-{
-	t_node	*tmp1;
-	t_node	*tmp2;
-
-	if (*stack_a == NULL)
+	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
 	tmp1 = *stack_a;
-	tmp2 = *stack_b;
+	tmp2 = NULL;
+	while (tmp1->next != NULL)
+	{
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
+	}
+	tmp2->next = NULL;
+	tmp1->next = *stack_a;
+	*stack_a = tmp1;
+	write(1, "rra\n", 4);
+}
+
+/*rotates stack b down*/
+
+void	rrb(t_node **stack_b)
+{
+	t_node	*tmp1;
+	t_node	*tmp2;
+
+	if (*stack_b == NULL || (*stack_b)->next == NULL)
+		return ;
+	tmp1 = *stack_b;
+	tmp2 = NULL;
+	while (tmp1->next != NULL)
+	{
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
+	}
+	tmp2->next = NULL;
+	tmp1->next = *stack_b;
 	*stack_b = tmp1;
-	*stack_a = tmp1->next;
-	tmp1->next = tmp2;
-	write(1, "pb\n", 3);
+	write(1, "rrb\n", 4);
 }

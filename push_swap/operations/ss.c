@@ -6,13 +6,13 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 04:51:15 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/20 16:02:33 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:06:04 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*swaps first two elements of the list*/
+/*swaps first two elements of stack a*/
 
 void	sa(t_node **stack_a)
 {
@@ -28,6 +28,8 @@ void	sa(t_node **stack_a)
 	(*stack_a)->next = tmp1;
 	write(1, "sa\n", 3);
 }
+
+/*swaps first two elements of stack b*/
 
 void	sb(t_node **stack_b)
 {
