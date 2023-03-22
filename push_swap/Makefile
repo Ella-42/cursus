@@ -6,13 +6,15 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/21 23:54:31 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/03/22 18:59:15 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = error_checks/ft_error_check.c error_checks/ft_isdup.c \
-       error_checks/ft_isint.c ft_utils.c push_swap.c ft_linked_list.c \
-       operations/pp.c operations/ss.c operations/rr.c operations/rrr.c
+SRCS = push_swap.c ft_utils.c ft_linked_list.c \
+       error_checks/ft_error_check.c \
+       error_checks/ft_isdup.c error_checks/ft_isint.c \
+       operations/pp.c operations/ss.c operations/rr.c operations/rrr.c \
+       algorithm/master.c
 
 PSRCS = libftprintf/ft_isalpha.c libftprintf/ft_isdigit.c \
        libftprintf/ft_isalnum.c libftprintf/ft_isascii.c \
@@ -39,9 +41,11 @@ PSRCS = libftprintf/ft_isalpha.c libftprintf/ft_isdigit.c \
        libftprintf/ft_printf_number_hex.c libftprintf/ft_printf_ptr.c \
        libftprintf/ft_printf_unsigned_int.c libftprintf/ft_printf_int_decimal.c
 
-OBJS = ${SRCS:.c=.o}
+OBJ_DIR = ./OBJS/
 
-POBJS = ${PSRCS:.c=.o}
+OBJS = ${SRCS:%.c=${OBJ_DIR}%.o}
+
+POBJS = ${PSRCS:%.c=${OBJ_DIR}%.o}
 
 NAME = push_swap
 
@@ -49,12 +53,15 @@ NAME = push_swap
 
 CC = gcc
 
-RM = rm -f
+RM = rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
+${OBJ_DIR}%.o: %.c | ${MK_DIR}
 	${CC} ${CFLAGS} -c $< -o $@
+
+MK_DIR = mkdir &{OBJ_DIR}
+	find . -type d -exec mkdir -p ${OBJ_DIR} \; -print
 
 ${NAME}: ${OBJS} ${POBJS}
 	${CC} -o ${NAME} ${OBJS} ${POBJS}
@@ -63,7 +70,7 @@ ${NAME}: ${OBJS} ${POBJS}
 all: ${NAME} ${OBJS} ${POBJS}
 
 clean:
-	${RM} ${OBJS} ${POBJS}
+	${RM} ${OBJS} ${POBJS} ${OBJ_DIR}
 
 fclean: clean
 	${RM} ${NAME} ${CNAME}

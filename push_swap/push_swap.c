@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 11:17:26 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:45:02 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 int	main(int ac, char **av)
 {
 	if (ft_error_check(ac, av))
-		return (1);
+		exit (1);
 	master_algorithm(ac, av);
 }

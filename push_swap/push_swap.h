@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 11:21:38 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/22 17:33:11 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 /*           master.c           */
 /********************************/
 
-int		master_algorithm(int ac, char **av);
+void	print_list(t_node **stack);
+void	master_algorithm(int ac, char **av);
 
 #endif

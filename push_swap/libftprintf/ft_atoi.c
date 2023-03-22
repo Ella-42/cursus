@@ -6,11 +6,20 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:45:11 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/12 18:37:53 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:41:36 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	check_empty(const char *str)
+{
+	if (str[0] == '\0')
+	{
+		write(1, "Error\n", 6);
+		exit (1);
+	}
+}
 
 int	ft_atoi(const char *str)
 {
@@ -21,6 +30,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	s = 1;
 	r = 0;
+	check_empty(str);
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-')
