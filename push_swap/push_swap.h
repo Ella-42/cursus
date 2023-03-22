@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 00:00:29 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:21:38 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,19 @@ void	rrb(t_node **stack_b);
 void	to_second_to_last(t_node **last_node_a, t_node **last_node_b,
 			t_node **second_to_last_node_a, t_node **second_to_last_node_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
+
+/****************************************************/
+/*                                                  */
+/*                    ALGORITHM                     */
+/*                                                  */
+/****************************************************/
+
+/*       (./algorithm/)      */
+
+/********************************/
+/*           master.c           */
+/********************************/
+
+int		master_algorithm(int ac, char **av);
 
 #endif
