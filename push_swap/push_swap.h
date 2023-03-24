@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 17:33:11 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/24 21:49:04 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,6 @@ typedef struct node
 /********************************/
 
 int		main(int ac, char **av);
-
-/********************************/
-/*       ft_linked_list.c       */
-/********************************/
-
-t_node	*ft_lla(int ac, char **av);
-t_node	*ft_llb(void);
 
 /********************************/
 /*          ft_utils.c          */
@@ -143,10 +136,17 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 /*       (./algorithm/)      */
 
 /********************************/
+/*       ft_linked_list.c       */
+/********************************/
+
+t_node	*ft_lla(int ac, char **av);
+t_node	*ft_llb(void);
+void	print_list(t_node **stack);
+
+/********************************/
 /*           master.c           */
 /********************************/
 
-void	print_list(t_node **stack);
 void	master_algorithm(int ac, char **av);
 
 #endif

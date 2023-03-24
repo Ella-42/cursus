@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/24 17:09:54 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/03/24 18:23:39 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,4 +75,5 @@ re: fclean all
 #so: ${POBJS}
 #	${CC} -nostartfiles -shared -o ${CNAME} ${POBJS}
 
+#targets
 .PHONY: all clean fclean re so

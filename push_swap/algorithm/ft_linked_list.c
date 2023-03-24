@@ -6,11 +6,11 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/24 17:12:30 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:01:03 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*converts input into a linked list*/
 
@@ -51,6 +51,22 @@ t_node	*ft_llb(void)
 
 	stack_b = NULL;
 	return (stack_b);
+}
+
+/*print the list's values*/
+
+void	print_list(t_node **stack)
+{
+	t_node	*current;
+
+	current = *stack;
+	ft_printf("Linked list values: ");
+	while (current != NULL)
+	{
+		ft_printf("%d ", current->val);
+		current = current->next;
+	}
+	ft_printf("\n");
 }
 
 /*testing*/

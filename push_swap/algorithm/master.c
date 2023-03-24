@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/24 16:36:53 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/24 22:00:32 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,6 @@ int	is_sorted(t_node **stack_a, t_node **stack_b)
 	if (!(*stack_b == NULL))
 		return (1);
 	return (0);
-}
-
-/*print the list's values*/
-
-void	print_list(t_node **stack)
-{
-	t_node	*current;
-
-	current = *stack;
-	ft_printf("Linked list values: ");
-	while (current != NULL)
-	{
-		ft_printf("%d ", current->val);
-		current = current->next;
-	}
-	ft_printf("\n");
 }
 
 /*convert input to linked lists, then sort it*/
