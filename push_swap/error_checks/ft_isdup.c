@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:39:37 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 05:14:26 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:06:37 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,21 @@
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	size_t	i;
+	size_t	start_1;
+	size_t	start_2;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	start_1 = 0;
+	while (s1[start_1] == '0')
+		start_1++;
+	start_2 = 0;
+	while (s2[start_2] == '0')
+		start_2++;
+	while (s1[start_1] || s2[start_2])
 	{
-		if (s1[i] != s2[i])
+		if (s1[start_1] != s2[start_2])
 			return (1);
-		i++;
+		start_1++;
+		start_2++;
 	}
 	return (0);
 }

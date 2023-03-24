@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 00:04:50 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:12:30 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_node	*ft_lla(int ac, char **av)
 	}
 	return (stack_a);
 }
+
+/*create empty linked list*/
 
 t_node	*ft_llb(void)
 {
