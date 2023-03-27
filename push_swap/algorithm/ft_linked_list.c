@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/27 14:41:27 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:34:25 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,28 @@ t_node	*ft_llb(void)
 	return (stack_b);
 }
 
+/*checks linked list for duplicates*/
+
+int	ft_lldup(t_node **stack)
+{
+	t_node	*current;
+	t_node	*compare;
+
+	current = *stack;
+	while (current != NULL)
+	{
+		compare = current->next;
+		while (compare != NULL)
+		{
+			if (current->val == compare->val)
+				return (1);
+			compare = compare->next;
+		}
+		current = current->next;
+	}
+	return (0);
+}
+
 /*print the list's values*/
 
 void	print_list(t_node **stack)
@@ -70,8 +92,8 @@ void	print_list(t_node **stack)
 }
 
 /*testing*/
-/*
-int	ft_ll(int ac, char **av)
+
+/*int	ft_ll(int ac, char **av)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
@@ -82,22 +104,20 @@ int	ft_ll(int ac, char **av)
 	stack_b = ft_llb();
 	if (stack_a == NULL)
 		return (1);
-//	sa(&stack_a);
-//	sb(&stack_a);
+	sa(&stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
 	pb(&stack_b, &stack_a);
-//	ra(&stack_a);
-//	rb(&stack_b);
+	ra(&stack_a);
+	rb(&stack_b);
 //	rr(&stack_a, &stack_b);
 	rra(&stack_a);
 	rrb(&stack_b);
 //	rrr(&stack_a, &stack_b);
-//	sa(&stack_a);
-//	pa(&stack_a, &stack_b);
-//	pa(&stack_a, &stack_b);
-//	pa(&stack_a, &stack_b);
-//	ss(&stack_a, &stack_b);
+	sa(&stack_a);
+	pa(&stack_a, &stack_b);
+	pa(&stack_a, &stack_b);
+	pa(&stack_a, &stack_b);
 	current1 = stack_a;
 	write(1, "Linked list values stack_a: ", 28);
 	while (current1 != NULL)
@@ -120,5 +140,4 @@ int	ft_ll(int ac, char **av)
 int	main(int ac, char **av)
 {
 	ft_ll(ac, av);
-}
-*/
+}*/

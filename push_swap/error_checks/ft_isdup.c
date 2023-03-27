@@ -6,20 +6,23 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:39:37 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/27 15:56:00 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:19:20 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*checks if number is negative*/
+/*depricated and replaced with ft_lldup*/
+
+/*
+//checks if number is negative
 
 int	ft_isneg(char *s)
 {
 	return (s[0] == '-');
 }
 
-/*compares two strings*/
+//compares two strings
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -46,7 +49,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-/*checks for duplicates*/
+//checks for duplicates
 
 int	ft_isdup(int ac, char **av)
 {
@@ -68,4 +71,4 @@ int	ft_isdup(int ac, char **av)
 		k++;
 	}
 	return (0);
-}
+}*/
