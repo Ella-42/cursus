@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/28 12:55:49 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 21:07:51 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,13 @@ void	index_stack(t_node **stack)
 
 int	is_sorted(t_node **stack_a, t_node **stack_b)
 {
-	(void)*stack_a;
-	if (!(*stack_b == NULL))
+	t_node	*stack;
+
+	stack = *stack_a;
+	if (!(stack_b == NULL))
 		return (1);
-	return (0);
-}
-
-/*free stack's memory*/
-
-void	free_ll(t_node *stack)
-{
-	t_node	*current;
-	t_node	*next;
-
-	current = stack;
-	while (current != NULL)
-	{
-		next = current->next;
-		free (current);
-		current = next;
-	}
+	free_ll(stack);
+	exit (0);
 }
 
 /*convert input to linked lists, then sort it*/
@@ -80,10 +67,9 @@ void	master_algorithm(int ac, char **av)
 		return ;
 	}
 	stack_b = ft_llb();
-	if (is_sorted(&stack_a, &stack_b))
-		return ;
 	print_list(&stack_a);
 	index_stack(&stack_a);
 	print_list(&stack_b);
+	index_stack(&stack_b);
 	free_ll(stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/28 14:02:08 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 21:08:58 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@
 
 /*exit, malloc, free*/
 # include <stdlib.h>
-
-/**/
-//# include <stddef.h>
 
 /**/
 # include "libftprintf/libft.h"
@@ -113,22 +110,6 @@ int		ft_isdup(int ac, char **av);*/
 /*       (./algorithm/)      */
 
 /********************************/
-/*      master_algorithm.c      */
-/********************************/
-
-/*convert values to order*/
-void	index_stack(t_node **stack);
-
-/*check if list is sorted*/
-int		is_sorted(t_node **stack_a, t_node **stack_b);
-
-/*free stack's memory*/
-void	free_ll(t_node *stack);
-
-/*convert input to linked lists, then sort it*/
-void	master_algorithm(int ac, char **av);
-
-/********************************/
 /*       ft_linked_list.c       */
 /********************************/
 
@@ -137,6 +118,9 @@ t_node	*ft_lla(int ac, char **av);
 
 /*create empty linked list*/
 t_node	*ft_llb(void);
+
+/*free stack's memory*/
+void	free_ll(t_node *stack);
 
 /*checks linked list for duplicates*/
 int		ft_lldup(t_node **stack);
@@ -147,6 +131,26 @@ void	print_list(t_node **stack);
 /*testing
 int		ft_ll(int ac, char **av)
 int		main(int ac, char **av)*/
+
+/********************************/
+/*      master_algorithm.c      */
+/********************************/
+
+/*convert values to order*/
+void	index_stack(t_node **stack);
+
+/*check if list is sorted*/
+int		is_sorted(t_node **stack_a, t_node **stack_b);
+
+/*convert input to linked lists, then sort it*/
+void	master_algorithm(int ac, char **av);
+
+/********************************/
+/*         algorithm.c          */
+/********************************/
+
+/*algorithm for 2 numbers*/
+void	algo2(t_node *stack_a);
 
 /****************************************************/
 /*                                                  */
@@ -192,9 +196,6 @@ void	ra(t_node **stack_a);
 
 /*rotates stack b up*/
 void	rb(t_node **stack_b);
-
-/*traverses to last node*/
-void	to_last_node(t_node **last_node_a, t_node **last_node_b);
 
 /*rotates both stack a and b up*/
 void	rr(t_node **stack_a, t_node **stack_b);

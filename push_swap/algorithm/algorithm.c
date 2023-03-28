@@ -6,10 +6,14 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:25:49 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/28 14:02:57 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 19:35:47 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	algo2()
+/*algorithm for 2 numbers*/
+void	algo2(t_node *stack_a)
+{
+	ra(&stack_a);
+}

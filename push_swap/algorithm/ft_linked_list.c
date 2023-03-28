@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/27 20:34:25 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 20:32:14 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,22 @@ t_node	*ft_llb(void)
 
 	stack_b = NULL;
 	return (stack_b);
+}
+
+/*free stack's memory*/
+
+void	free_ll(t_node *stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	current = stack;
+	while (current != NULL)
+	{
+		next = current->next;
+		free (current);
+		current = next;
+	}
 }
 
 /*checks linked list for duplicates*/
