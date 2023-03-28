@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/27 20:43:31 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 14:02:08 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,20 @@
 /****************************************************/
 
 /*libraries and header files*/
+
+/*write*/
 # include <unistd.h>
+
+/*exit, malloc, free*/
 # include <stdlib.h>
-# include <stddef.h>
+
+/**/
+//# include <stddef.h>
+
+/**/
 # include "libftprintf/libft.h"
+
+/**/
 # include "libftprintf/ft_printf.h"
 
 /****************************************************/
