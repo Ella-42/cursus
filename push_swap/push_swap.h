@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/29 14:31:14 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:58:26 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	free_ll(t_node *stack);
 int		ft_lldup(t_node **stack);
 
 /*print the list's values*/
-void	print_list(t_node **stack);
+void	print_list(t_node **stack, t_node **stack_b);
 
 /*testing
 int		ft_ll(int ac, char **av)

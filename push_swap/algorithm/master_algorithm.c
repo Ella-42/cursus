@@ -6,55 +6,37 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/31 23:18:52 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:16:15 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*convert values to order*/
+/*get minimum value, maximum value and length*/
 
 void	index_stack(t_node **stack)
 {
-	int		val;
 	int		min_val;
-	int		prev_val;
-	t_node	*index;
+	int		max_val;
+	int		len;
+	t_node	*current;
 
-	val = 0;
 	min_val = (*stack)->val;
-	index = *stack;
-	while (index != NULL)
+	max_val = (*stack)->val;
+	len = 0;
+	current = *stack;
+	while (current != NULL)
 	{
-		if (index->val < min_val)
-			min_val = index->val;
-		index = index->next;
+		if (current->val < min_val)
+			min_val = current->val;
+		else if (current->val > max_val)
+			max_val = current->val;
+		len++;
+		current = current->next;
 	}
-	index = *stack;
-	while (index != NULL)
-	{
-		if (index->val == min_val)
-		{
-			index->val = val;
-			val++;
-		}
-		index = index->next;
-	}
-	index = *stack;
-	prev_val = min_val;
-	next_val = min_val + 1;
-	while (index != NULL)
-	{
-		if (index->val > prev_val)
-		{
-			if (index->val < next_val)
-			{
-				index->val = val;
-				val++;
-			}
-		}
-		index = index->next;
-	}
+	ft_printf("minimum value: %d\n", min_val);
+	ft_printf("maximum value: %d\n", max_val);
+	ft_printf("length: %d\n", len);
 }
 
 /*check if list is sorted*/
@@ -62,12 +44,22 @@ void	index_stack(t_node **stack)
 int	is_sorted(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*stack;
+	int		next_val;
 
 	stack = *stack_a;
+	next_val = (*stack_a)->next->val;
+	while (stack->next != NULL)
+	{
+		if (stack->val > next_val)
+			return (1);
+		stack = stack->next;
+		if (!stack->next->val)
+			next_val = stack->next->val;
+	}
 	if (!(stack_b == NULL))
 		return (1);
-	free_ll(stack);
-	exit (0);
+	ft_printf("Finished\n");
+	return (0);
 }
 
 /*convert input to linked lists, then sort it*/
@@ -85,9 +77,9 @@ void	master_algorithm(int ac, char **av)
 		return ;
 	}
 	stack_b = ft_llb();
-	print_list(&stack_a);
+	print_list(&stack_a, &stack_b);
 	index_stack(&stack_a);
-	print_list(&stack_a);
+	is_sorted(&stack_a, &stack_b);
 	free_ll(stack_a);
 	free_ll(stack_b);
 }
