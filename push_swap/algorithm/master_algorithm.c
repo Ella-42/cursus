@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/03 16:16:15 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:20:37 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,24 @@ void	index_stack(t_node **stack)
 int	is_sorted(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*stack;
+	int		prev_val;
 	int		next_val;
 
 	stack = *stack_a;
-	next_val = (*stack_a)->next->val;
 	while (stack->next != NULL)
 	{
-		if (stack->val > next_val)
+		next_val = stack->next->val;
+		prev_val = stack->val;
+		ft_printf("prev_val %d ", prev_val);
+		ft_printf("next_val %d \n", next_val);
+		if (next_val < prev_val)
+		{
+			ft_printf("Error\n");
 			return (1);
+		}
 		stack = stack->next;
-		if (!stack->next->val)
-			next_val = stack->next->val;
 	}
-	if (!(stack_b == NULL))
+	if (!(*stack_b == NULL))
 		return (1);
 	ft_printf("Finished\n");
 	return (0);
