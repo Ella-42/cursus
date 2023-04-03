@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/03 19:20:37 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/03 19:33:41 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	is_sorted(t_node **stack_a, t_node **stack_b)
 	int		prev_val;
 	int		next_val;
 
+	if (!(*stack_b == NULL))
+		return (1);
 	stack = *stack_a;
 	while (stack->next != NULL)
 	{
@@ -61,8 +63,6 @@ int	is_sorted(t_node **stack_a, t_node **stack_b)
 		}
 		stack = stack->next;
 	}
-	if (!(*stack_b == NULL))
-		return (1);
 	ft_printf("Finished\n");
 	return (0);
 }
