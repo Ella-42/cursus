@@ -18,6 +18,7 @@ void	index_stack(t_node **stack)
 {
 	int		val;
 	int		min_val;
+	int		prev_val;
 	t_node	*index;
 
 	val = 0;
@@ -36,6 +37,21 @@ void	index_stack(t_node **stack)
 		{
 			index->val = val;
 			val++;
+		}
+		index = index->next;
+	}
+	index = *stack;
+	prev_val = min_val;
+	next_val = min_val + 1;
+	while (index != NULL)
+	{
+		if (index->val > prev_val)
+		{
+			if (index->val < next_val)
+			{
+				index->val = val;
+				val++;
+			}
 		}
 		index = index->next;
 	}
