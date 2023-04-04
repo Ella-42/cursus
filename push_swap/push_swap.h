@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/04 16:06:05 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:22:57 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,27 @@ int		ft_ll(int ac, char **av)
 int		main(int ac, char **av)*/
 
 /********************************/
+/*          ll_utils.c          */
+/********************************/
+
+/*get stack length*/
+int		ft_stack_len(t_node **stack);
+
+/*get minimum value*/
+int		ft_min_val(t_node **stack);
+
+/*get maximum value*/
+int		ft_max_val(t_node **stack);
+
+/********************************/
 /*      master_algorithm.c      */
 /********************************/
 
-/*convert values to order*/
-void	mm_val(t_node **stack);
-
 /*check if list is sorted*/
 int		is_sorted(t_node **stack_a, t_node **stack_b);
+
+/*check which sorting algorithm to use*/
+void	which_sort(t_node **stack_a);
 
 /*convert input to linked lists, then sort it*/
 void	master_algorithm(int ac, char **av);
@@ -151,6 +164,9 @@ void	master_algorithm(int ac, char **av);
 
 /*algorithm for 2 numbers*/
 void	algo2(t_node *stack_a);
+
+/*algorithm for 2 numbers*/
+void	algo3(t_node *stack_a);
 
 /****************************************************/
 /*                                                  */
