@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/03 19:33:41 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:20:50 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*get minimum value, maximum value and length*/
 
-void	index_stack(t_node **stack)
+void	mm_val(t_node **stack)
 {
 	int		min_val;
 	int		max_val;
@@ -48,23 +48,17 @@ int	is_sorted(t_node **stack_a, t_node **stack_b)
 	int		next_val;
 
 	if (!(*stack_b == NULL))
-		return (1);
+		return (0);
 	stack = *stack_a;
 	while (stack->next != NULL)
 	{
 		next_val = stack->next->val;
 		prev_val = stack->val;
-		ft_printf("prev_val %d ", prev_val);
-		ft_printf("next_val %d \n", next_val);
 		if (next_val < prev_val)
-		{
-			ft_printf("Error\n");
-			return (1);
-		}
+			return (0);
 		stack = stack->next;
 	}
-	ft_printf("Finished\n");
-	return (0);
+	return (1);
 }
 
 /*convert input to linked lists, then sort it*/
@@ -83,8 +77,8 @@ void	master_algorithm(int ac, char **av)
 	}
 	stack_b = ft_llb();
 	print_list(&stack_a, &stack_b);
-	index_stack(&stack_a);
-	is_sorted(&stack_a, &stack_b);
-	free_ll(stack_a);
+	mm_val(&stack_a);
+	if (is_sorted(&stack_a, &stack_b))
+		free_ll(stack_a);
 	free_ll(stack_b);
 }

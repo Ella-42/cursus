@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/03 15:58:26 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:06:05 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 /*exit, malloc, free*/
 # include <stdlib.h>
 
-/**/
+/*libft library*/
 # include "libftprintf/libft.h"
 
-/**/
+/*ft_printf function*/
 # include "libftprintf/ft_printf.h"
 
 /****************************************************/
@@ -137,7 +137,7 @@ int		main(int ac, char **av)*/
 /********************************/
 
 /*convert values to order*/
-void	index_stack(t_node **stack);
+void	mm_val(t_node **stack);
 
 /*check if list is sorted*/
 int		is_sorted(t_node **stack_a, t_node **stack_b);
