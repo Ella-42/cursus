@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/04 18:24:21 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:13:25 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	master_algorithm(int ac, char **av)
 	{
 		ft_printf("Error\n");
 		free_ll(stack_a);
-		return ;
+		exit (1);
 	}
 	stack_b = ft_llb();
 	if (is_sorted(&stack_a, &stack_b))

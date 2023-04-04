@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 21:39:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/04 17:18:02 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/04 19:46:18 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,25 @@ int	ft_lldup(t_node **stack)
 	return (0);
 }
 
-/*print the list's values*/
+/*print the list values*/
 
-void	print_list(t_node **stack_a, t_node **stack_b)
+void	print_list(t_node **stack_a)
+{
+	t_node	*current;
+
+	current = *stack_a;
+	ft_printf("Linked list values stack: ");
+	while (current != NULL)
+	{
+		ft_printf("%d ", current->val);
+		current = current->next;
+	}
+	ft_printf("\n");
+}
+
+/*print the list's values*/
+/*
+void	print_lists(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*current;
 
@@ -114,7 +130,7 @@ void	print_list(t_node **stack_a, t_node **stack_b)
 	}
 	ft_printf("\n");
 }
-
+*/
 /*testing*/
 
 /*int	ft_ll(int ac, char **av)
