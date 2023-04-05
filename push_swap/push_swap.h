@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/04 19:41:12 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:59:48 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,16 +125,6 @@ void	free_ll(t_node *stack);
 /*checks linked list for duplicates*/
 int		ft_lldup(t_node **stack);
 
-/*print the list values*/
-void	print_list(t_node **stack);
-
-/*print the list's values*/
-/*void	print_lists(t_node **stack, t_node **stack_b);*/
-
-/*testing
-int		ft_ll(int ac, char **av)
-int		main(int ac, char **av)*/
-
 /********************************/
 /*          ll_utils.c          */
 /********************************/
@@ -148,12 +138,29 @@ int		ft_min_val(t_node **stack);
 /*get maximum value*/
 int		ft_max_val(t_node **stack);
 
+/*check if stack is sorted*/
+int		s_sorted(t_node **stack);
+
+/*check if everything is sorted*/
+int		ll_sorted(t_node **stack_a, t_node **stack_b);
+
+/********************************/
+/*       testing_grounds.c      */
+/********************************/
+
+/*print the list's values*/
+void	print_list(t_node **stack);
+
+/*print the lists' values*/
+void	print_lists(t_node **stack_a, t_node **stack_b);
+
+/*testing*/
+int		ft_ll(int ac, char **av);
+//int		main(int ac, char **av);
+
 /********************************/
 /*      master_algorithm.c      */
 /********************************/
-
-/*check if list is sorted*/
-int		is_sorted(t_node **stack_a, t_node **stack_b);
 
 /*check which sorting algorithm to use*/
 void	which_sort(t_node **stack_a);
@@ -166,10 +173,13 @@ void	master_algorithm(int ac, char **av);
 /********************************/
 
 /*algorithm for 2 numbers*/
-void	algo2(t_node *stack_a);
+void	algo2(t_node **stack_a);
 
-/*algorithm for 2 numbers*/
-void	algo3(t_node *stack_a);
+/*algorithm for 3 numbers*/
+void	algo3(t_node **stack_a);
+
+/*algorithm for 4 numbers*/
+void	algo4(t_node **stack_a);
 
 /****************************************************/
 /*                                                  */
@@ -202,9 +212,9 @@ void	sb(t_node **stack_b);
 /*swaps first two elements of both stack a and b*/
 void	ss(t_node **stack_a, t_node **stack_b);
 
-/*testing
-void	print_list(t_node *first_value)
-int		main(int ac, char **av)*/
+/*testing*/
+//void	print_list(t_node *first_value)
+//int		main(int ac, char **av)
 
 /********************************/
 /*             rr.c             */

@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:54:17 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/04 18:21:09 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:21:45 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,46 @@ int	ft_max_val(t_node **stack)
 		current = current->next;
 	}
 	return (max_val);
+}
+
+/*check if stack is sorted*/
+
+int	s_sorted(t_node **stack)
+{
+	t_node	*s;
+	int		prev_val;
+	int		next_val;
+
+	s = *stack;
+	while (s->next != NULL)
+	{
+		next_val = s->next->val;
+		prev_val = s->val;
+		if (next_val < prev_val)
+			return (0);
+		s = s->next;
+	}
+	return (1);
+}
+
+/*check if everything is sorted*/
+
+int	ll_sorted(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*stack;
+	int		prev_val;
+	int		next_val;
+
+	if ((*stack_b != NULL))
+		return (0);
+	stack = *stack_a;
+	while (stack->next != NULL)
+	{
+		next_val = stack->next->val;
+		prev_val = stack->val;
+		if (next_val < prev_val)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
