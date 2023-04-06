@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/05 19:59:48 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/06 18:33:02 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,9 @@ void	algo3(t_node **stack_a);
 
 /*algorithm for 4 numbers*/
 void	algo4(t_node **stack_a);
+
+/*algorithm for 5 numbers*/
+void	algo5(t_node **stack_a);
 
 /****************************************************/
 /*                                                  */
