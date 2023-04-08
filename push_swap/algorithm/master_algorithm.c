@@ -27,6 +27,8 @@ void	which_sort(t_node **stack_a)
 		algo4(stack_a);
 	else if (len == 5)
 		algo5(stack_a);
+//	else if (len > 5)
+//		algo(stack_a);
 }
 
 /*convert input to linked lists, then sort it*/

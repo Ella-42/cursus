@@ -169,7 +169,7 @@ void	which_sort(t_node **stack_a);
 void	master_algorithm(int ac, char **av);
 
 /********************************/
-/*         algorithm.c          */
+/*         hardcoded.c          */
 /********************************/
 
 /*algorithm for 2 numbers*/
@@ -183,6 +183,13 @@ void	algo4(t_node **stack_a);
 
 /*algorithm for 5 numbers*/
 void	algo5(t_node **stack_a);
+
+/********************************/
+/*         algorithm.c          */
+/********************************/
+
+/*algorithm for any amount of numbers bigger than 5*/
+void	algo(t_node **stack_a);
 
 /****************************************************/
 /*                                                  */
