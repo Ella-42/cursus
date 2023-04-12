@@ -5,7 +5,7 @@ read pattern
 
 printf '\033[2J\033[H'
 
-for file in *"$pattern"*; do
-  echo "\n==================== $file ====================\n"
+find . -name "$pattern" | while read file; do
+  echo -e "\n==================== $file ====================\n"
   tail -n +15 "$file"
-done
+done > ~/log.txt

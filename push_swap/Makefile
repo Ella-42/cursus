@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/22 20:19:36 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/03/24 18:23:39 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS = ${shell find . -name "*.c"}
 PSRCS = ${filter libftprintf/%,${SRCS}}
 
 #object directory
-OBJ_DIR = ./OBJS/
+OBJ_DIR = OBJS/
 
 #convert c files into object files
 OBJS = ${SRCS:%.c=${OBJ_DIR}%.o}
@@ -75,4 +75,5 @@ re: fclean all
 #so: ${POBJS}
 #	${CC} -nostartfiles -shared -o ${CNAME} ${POBJS}
 
+#targets
 .PHONY: all clean fclean re so

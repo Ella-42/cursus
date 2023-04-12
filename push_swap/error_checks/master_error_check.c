@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   master.c                                           :+:      :+:    :+:   */
+/*   ft_error_check.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/22 15:19:38 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/02/20 23:11:10 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/03/27 20:13:07 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_list(t_node **stack)
-{
-	t_node	*current;
+/*check input for errors*/
 
-	current = *stack;
-	ft_printf("Linked list values: ");
-	while (current != NULL)
+int	ft_error_check(int ac, char **av)
+{
+	size_t	j;
+
+	if (ac <= 1)
+		return (1);
+	j = 1;
+	while (av[j] != NULL)
 	{
-		ft_printf("%d ", current->val);
-		current = current->next;
+		if (!ft_isint(av[j]))
+		{
+			write(1, "Error\n", 6);
+			return (1);
+		}
+		j++;
 	}
-	ft_printf("\n");
-}
-
-void	master_algorithm(int ac, char **av)
-{
-	t_node	*stack_a;
-	t_node	*stack_b;
-
-	stack_a = ft_lla(ac, av);
-	if (stack_a == NULL)
-		return ;
-	stack_b = ft_llb();
-	print_list(&stack_a);
-	print_list(&stack_b);
+	return (0);
 }

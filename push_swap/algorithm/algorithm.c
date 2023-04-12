@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lpeeters <lpeeters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/13 22:03:39 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/16 02:23:42 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/04/09 17:25:49 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/04/09 17:25:54 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	ft_uatoi(char *str)
+/*algorithm for any amount of numbers bigger than 5*/
+
+void	algo(t_node **stack_a)
 {
-	int		n;
-	int		s;
-	int		i;
+	t_node	*stack_b;
 
-	n = 0;
-	s = 1;
-	i = 0;
-	if (str[i] == '-')
-	{
-		s = -1;
-		i++;
-	}
-	while (str[i] != '\0')
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (n * s);
+	stack_b = ft_llb();
 }

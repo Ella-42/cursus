@@ -6,29 +6,50 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:39:37 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/03/17 05:14:26 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/03/28 12:19:38 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*compares two strings*/
+/*depricated and replaced with ft_lldup*/
+
+/*
+//checks if number is negative
+
+int	ft_isneg(char *s)
+{
+	return (s[0] == '-');
+}
+
+//compares two strings
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	size_t	i;
+	size_t	start_1;
+	size_t	start_2;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	if (ft_isneg(s1) != ft_isneg(s2))
+		return (1);
+	start_1 = 0;
+	while ((s1[start_1] == '-' && start_1 < ft_strlen(s1))
+		|| s1[start_1] == '0')
+		start_1++;
+	start_2 = 0;
+	while ((s2[start_2] == '-' && start_2 < ft_strlen(s2))
+		|| s2[start_2] == '0')
+		start_2++;
+	while (s1[start_1] || s2[start_2])
 	{
-		if (s1[i] != s2[i])
+		if (s1[start_1] != s2[start_2])
 			return (1);
-		i++;
+		start_1++;
+		start_2++;
 	}
 	return (0);
 }
 
-/*checks for duplicates*/
+//checks for duplicates
 
 int	ft_isdup(int ac, char **av)
 {
@@ -50,4 +71,4 @@ int	ft_isdup(int ac, char **av)
 		k++;
 	}
 	return (0);
-}
+}*/
