@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/06 18:57:12 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:32:06 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	which_sort(t_node **stack_a)
 		algo4(stack_a);
 	else if (len == 5)
 		algo5(stack_a);
-//	else if (len > 5)
-//		algo(stack_a);
+	else if (len > 5)
+		algo(stack_a);
 }
 
 /*convert input to linked lists, then sort it*/
