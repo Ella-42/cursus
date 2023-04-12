@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/12 17:32:06 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:02:20 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	master_algorithm(int ac, char **av)
 	else
 	{
 		which_sort(&stack_a);
-		print_lists(&stack_a, &stack_b);
+		if (!ll_sorted(&stack_a, &stack_b))
+			print_lists(&stack_a, &stack_b);
+		else
+			print_list(&stack_a);
 		free_ll(stack_a);
 	}
 }

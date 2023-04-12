@@ -6,12 +6,12 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/24 18:23:39 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/04/12 20:44:17 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #find sources
-SRCS = ${shell find . -name "*.c"}
+SRCS = ${shell find . -name "*.c" -not -path "./push_swap_visualizer/*"}
 
 #find libftprintf sources specifically
 PSRCS = ${filter libftprintf/%,${SRCS}}
