@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/06 18:33:02 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/25 20:14:34 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 typedef struct node
 {
 	int			val;
+	int			i;
 	struct node	*next;
 }				t_node;
 
@@ -189,7 +190,20 @@ void	algo5(t_node **stack_a);
 /********************************/
 
 /*algorithm for any amount of numbers bigger than 5*/
-void	algo(t_node **stack_a);
+void	algo(t_node **stack_a, int len);
+
+/********************************/
+/*           index.c            */
+/********************************/
+
+/*find the next minimum value within a stack*/
+int		next_min(t_node **stack, int prev);
+
+/*search next minimum value and assign it's value*/
+void	index_next(t_node **stack, int len);
+
+/*store indexed values into a stack*/
+void	index_stack(t_node **stack_a, int len);
 
 /****************************************************/
 /*                                                  */
