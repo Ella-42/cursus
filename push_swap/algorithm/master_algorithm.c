@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 11:17:48 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/25 20:08:28 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:27:19 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*check which sorting algorithm to use*/
 
-void	which_sort(t_node **stack_a)
+void	which_sort(t_node **stack_a, t_node **stack_b)
 {
 	int		len;
 
@@ -28,7 +28,7 @@ void	which_sort(t_node **stack_a)
 	else if (len == 5)
 		algo5(stack_a);
 	else if (len > 5)
-		algo(stack_a, len);
+		algo(stack_a, stack_b, len);
 }
 
 /*convert input to linked lists, then sort it*/
@@ -50,7 +50,7 @@ void	master_algorithm(int ac, char **av)
 		free_ll(stack_a);
 	else
 	{
-		which_sort(&stack_a);
+		which_sort(&stack_a, &stack_b);
 		if (!ll_sorted(&stack_a, &stack_b))
 			print_lists(&stack_a, &stack_b);
 		else

@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/25 20:14:34 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:51:56 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,9 @@ void	print_list(t_node **stack);
 /*print the lists' values*/
 void	print_lists(t_node **stack_a, t_node **stack_b);
 
+/*print the index of a list*/
+void	print_index(t_node **stack);
+
 /*testing*/
 int		ft_ll(int ac, char **av);
 //int		main(int ac, char **av);
@@ -164,7 +167,7 @@ int		ft_ll(int ac, char **av);
 /********************************/
 
 /*check which sorting algorithm to use*/
-void	which_sort(t_node **stack_a);
+void	which_sort(t_node **stack_a, t_node **stack_b);
 
 /*convert input to linked lists, then sort it*/
 void	master_algorithm(int ac, char **av);
@@ -189,8 +192,14 @@ void	algo5(t_node **stack_a);
 /*         algorithm.c          */
 /********************************/
 
+/*algorithm untill 100 numbers*/
+void	algo100(t_node **a, t_node **b, int len);
+
+/*algorithm untill 500 numbers*/
+void	algo500(t_node **a, t_node **b, int len);
+
 /*algorithm for any amount of numbers bigger than 5*/
-void	algo(t_node **stack_a, int len);
+void	algo(t_node **stack_a, t_node **stack_b, int len);
 
 /********************************/
 /*           index.c            */
@@ -204,6 +213,9 @@ void	index_next(t_node **stack, int len);
 
 /*store indexed values into a stack*/
 void	index_stack(t_node **stack_a, int len);
+
+/*copy the index of a stack over to another one*/
+t_node	cpy_index(t_node **stack, t_node *current);
 
 /****************************************************/
 /*                                                  */
