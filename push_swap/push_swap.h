@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/26 19:31:24 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/27 19:20:41 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,7 @@ void	print_lists(t_node **stack_a, t_node **stack_b);
 void	print_index(t_node **stack);
 
 /*testing*/
-int		ft_ll(int ac, char **av);
+//int		ft_ll(int ac, char **av);
 //int		main(int ac, char **av);
 
 /********************************/
@@ -192,11 +192,11 @@ void	algo5(t_node **stack_a);
 /*         algorithm.c          */
 /********************************/
 
-/*algorithm untill 100 numbers*/
-void	algo100(t_node **a, t_node **b, int len);
+/*compare moves to decide which rotate to use*/
+void	smart_rotate(t_node **a, int x, int y, int len);
 
-/*algorithm untill 500 numbers*/
-void	algo500(t_node **a, t_node **b, int len);
+/*sort numbers into chunks*/
+void	sort_chunk(t_node **a, t_node **b, int len, int x);
 
 /*algorithm for any amount of numbers bigger than 5*/
 void	algo(t_node **stack_a, t_node **stack_b, int len);
@@ -211,11 +211,11 @@ int		next_min(t_node **stack, int prev);
 /*search next minimum value and assign it's value*/
 void	index_next(t_node **stack, int len);
 
-/*store indexed values into a stack*/
-void	index_stack(t_node **stack_a, int len);
-
 /*copy the index of a stack over to another one*/
 t_node	cpy_index(t_node **stack, t_node *current);
+
+/*store indexed values into a stack*/
+void	index_stack(t_node **stack_a, int len);
 
 /****************************************************/
 /*                                                  */

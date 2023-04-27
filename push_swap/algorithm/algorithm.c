@@ -6,107 +6,77 @@
 /*   By: lpeeters <lpeeters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:25:49 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/26 19:31:32 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/27 19:20:33 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*smort*/
+/*compare moves to decide which rotate to use*/
 
-void	smort(t_node **a, int len)
+void	smart_rotate(t_node **a, int x, int y, int len)
 {
 	t_node	*c;
 	int		n;
+	int		test;
 
 	c = *a;
 	n = 0;
-	(void)len;
 	while (c != NULL)
 	{
-		ft_printf("%d\n", c->i);
-		if (c->i < 20)
+		if (c->i < y - x)
 			break ;
 		else
 			n++;
 		c = c->next;
 	}
 	ft_printf("n: %d\n", n);
-	if (n < 51)
+	test = (len / 2) + 1;
+	ft_printf("test: %d\n", test);
+	if (n < (len / 2) + 1)
 		while (n-- > 0)
 			ra(a);
 	else
 	{
-		n = 100 - n;
+		n = y - n - 1;
 		while (n-- > 0)
 			rra(a);
 	}
 }
 
-/*algorithm untill 100 numbers*/
+/*sort numbers into chunks*/
 
-void	algo100(t_node **a, t_node **b, int len)
+void	sort_chunk(t_node **a, t_node **b, int len, int x)
 {
-	while (len > 80)
-	{
-		if ((*a)->i < 20)
-			pb(b, a);
-		else
-			smort(a, len);
-		len = ft_stack_len(a);
-	}
-	while (len > 60)
-	{
-		if ((*a)->i < 40)
-			pb(b, a);
-		else
-			smort(a, len);
-		len = ft_stack_len(a);
-	}
-	while (len > 40)
-	{
-		if ((*a)->i < 60)
-			pb(b, a);
-		else
-			smort(a, len);
-		len = ft_stack_len(a);
-	}
-	while (len > 20)
-	{
-		if ((*a)->i < 80)
-			pb(b, a);
-		else
-			smort(a, len);
-		len = ft_stack_len(a);
-	}
-	while (len > 0)
-	{
-		if ((*a)->i < 100)
-			pb(b, a);
-		else
-			smort(a, len);
-		len = ft_stack_len(a);
-	}
-}
+	int	y;
 
-/*algorithm untill 500 numbers*/
-
-void	algo500(t_node **a, t_node **b, int len)
-{
-	(void)len;
-	if ((*a)->i < 250)
-		pb(b, a);
-	else
-		smort(a, len);
+	y = len;
+	while (len > x)
+	{
+		if ((*a)->i < y - x)
+			pb(b, a);
+		else
+			smart_rotate(a, x, y, len);
+		len = ft_stack_len(a);
+	}
 }
 
 /*algorithm for any amount of numbers bigger than 5*/
 
-void	algo(t_node **stack_a, t_node **stack_b, int len)
+void	algo(t_node **a, t_node **b, int len)
 {
-	index_stack(stack_a, len);
+	int	x;
+	int	z;
+
+	index_stack(a, len);
 	if (len < 101)
-		algo100(stack_a, stack_b, len);
+		z = 5;
 	else
-		algo500(stack_a, stack_b, len);
+		z = 10;
+	x = len - (len / z);
+	while (x >= 0)
+	{
+		sort_chunk(a, b, len, x);
+		x -= len / z;
+	}
 }
