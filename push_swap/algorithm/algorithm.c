@@ -6,77 +6,115 @@
 /*   By: lpeeters <lpeeters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:25:49 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/27 19:20:33 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:37:15 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*compare moves to decide which rotate to use*/
+/**/
 
-void	smart_rotate(t_node **a, int x, int y, int len)
+int	tmp2(t_node **stack_a, int size, int og_len, int len)
 {
-	t_node	*c;
-	int		n;
-	int		test;
+	t_node	*current;
+	int		rev_num;
+	int		count;
 
-	c = *a;
-	n = 0;
-	while (c != NULL)
+	current = *stack_a;
+	rev_num = 0;
+	count = 0;
+	while (current != NULL)
 	{
-		if (c->i < y - x)
+		if (count == len - size)
+			break ;
+		else if (current->i < og_len - size)
+		{
+			count++;
+			rev_num++;
+		}
+		else
+			rev_num++;
+		current = current->next;
+	}
+	return (rev_num);
+}
+
+/**/
+
+int	tmp(t_node **stack_a, int size, int og_len)
+{
+	t_node	*current;
+	int		number;
+
+	current = *stack_a;
+	number = 0;
+	while (current != NULL)
+	{
+		if (current->i < og_len - size)
 			break ;
 		else
-			n++;
-		c = c->next;
+			number++;
+		current = current->next;
 	}
-	ft_printf("n: %d\n", n);
-	test = (len / 2) + 1;
-	ft_printf("test: %d\n", test);
-	if (n < (len / 2) + 1)
-		while (n-- > 0)
-			ra(a);
-	else
+	return (number);
+}
+
+/*compare moves to decide which rotate to use*/
+
+void	smart_rotate(t_node **stack_a, t_node **stack_b, int size, int og_len)
+{
+	int	len;
+	int	number;
+	int	rev_num;
+
+	len = ft_stack_len(stack_a);
+	number = tmp(stack_a, size, og_len);
+	rev_num = tmp2(stack_a, size, og_len, len);
+//	print_index(stack_a);
+//	ft_printf("number: %d\n", number);
+	rev_num = len - rev_num + 1;
+//	ft_printf("rev_num: %d\n", rev_num);
+	if (rev_num < number)
 	{
-		n = y - n - 1;
-		while (n-- > 0)
-			rra(a);
+		while (rev_num-- > 0)
+			rra(stack_a);
 	}
+	else
+		while (number-- > 0)
+			ra(stack_a);
+	pb(stack_b, stack_a);
 }
 
 /*sort numbers into chunks*/
 
-void	sort_chunk(t_node **a, t_node **b, int len, int x)
+void	sort_chunk(t_node **stack_a, t_node **stack_b, int len, int size)
 {
-	int	y;
+	int	og_len;
 
-	y = len;
-	while (len > x)
+	og_len = len;
+	while (len > size)
 	{
-		if ((*a)->i < y - x)
-			pb(b, a);
-		else
-			smart_rotate(a, x, y, len);
-		len = ft_stack_len(a);
+		smart_rotate(stack_a, stack_b, size, og_len);
+		len = ft_stack_len(stack_a);
 	}
 }
 
 /*algorithm for any amount of numbers bigger than 5*/
 
-void	algo(t_node **a, t_node **b, int len)
+void	algo(t_node **stack_a, t_node **stack_b, int len)
 {
-	int	x;
+	int	size;
 	int	z;
 
-	index_stack(a, len);
+	index_stack(stack_a, len);
 	if (len < 101)
 		z = 5;
 	else
 		z = 10;
-	x = len - (len / z);
-	while (x >= 0)
+	size = len - (len / z);
+	while (size >= 0)
 	{
-		sort_chunk(a, b, len, x);
-		x -= len / z;
+		sort_chunk(stack_a, stack_b, len, size);
+		size -= len / z;
 	}
 }

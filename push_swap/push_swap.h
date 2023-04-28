@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/27 19:20:41 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/04/28 21:39:55 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,7 @@ void	algo5(t_node **stack_a);
 /********************************/
 
 /*compare moves to decide which rotate to use*/
-void	smart_rotate(t_node **a, int x, int y, int len);
+void	smart_rotate(t_node **stack_a, t_node **stack_b, int size, int og_len);
 
 /*sort numbers into chunks*/
 void	sort_chunk(t_node **a, t_node **b, int len, int x);
