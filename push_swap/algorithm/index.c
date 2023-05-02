@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 14:51:35 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/27 15:52:35 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:38:20 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	index_next(t_node **stack, int len)
 		while (current != NULL)
 		{
 			if (current->val == min_val)
-				current->i = index++;
+				current->index = index++;
 			current = current->next;
 		}
 	}
@@ -62,7 +62,7 @@ t_node	cpy_index(t_node **stack, t_node *current)
 {
 	while (current != NULL)
 	{
-		(*stack)->i = current->i;
+		(*stack)->index = current->index;
 		current = current->next;
 		*stack = (*stack)->next;
 	}
@@ -83,7 +83,7 @@ void	index_stack(t_node **stack, int len)
 	while (current != NULL)
 	{
 		if (current->val == min_val)
-			current->i = index++;
+			current->index = index++;
 		current = current->next;
 	}
 	index_next(stack, len);

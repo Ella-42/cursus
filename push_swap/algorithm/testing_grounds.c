@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:51:38 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/27 18:21:25 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:37:56 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	print_index(t_node **stack)
 	current = *stack;
 	while (current != NULL)
 	{
-		ft_printf("%d ", current->i);
+		ft_printf("%d ", current->index);
 		current = current->next;
 	}
 	ft_printf("\n");
