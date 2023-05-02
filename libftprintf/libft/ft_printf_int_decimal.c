@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int_decimal.c                             :+:      :+:    :+:   */
+/*   ft_printf_int_decimal.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:28:03 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/17 16:28:37 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/02 18:51:29 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 char	*ft_char(char *s, unsigned int number, int len)
 {
@@ -37,7 +37,7 @@ int	ft_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_pitoa(int n)
 {
 	char				*s;
 	int					len;
@@ -69,7 +69,7 @@ int	ft_putnbr(int n)
 	int		len;
 	char	*num;
 
-	num = ft_itoa(n);
+	num = ft_pitoa(n);
 	len = ft_putstr(num);
 	free(num);
 	return (len);

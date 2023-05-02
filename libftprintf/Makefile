@@ -6,57 +6,85 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 13:58:55 by lpeeters          #+#    #+#              #
-#    Updated: 2023/03/15 22:54:07 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/05/02 19:31:22 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
-       ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c \
-       ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
-       ft_calloc.c ft_strdup.c ft_toupper.c ft_tolower.c \
-       ft_strchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c \
-       ft_strnstr.c ft_atoi.c ft_strrchr.c ft_substr.c \
-       ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
-       ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
-       ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-       ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-       ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-       ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-       ft_printf.c ft_printf_number_hex.c \
-       ft_printf_ptr.c ft_printf_unsigned_int.c \
-       ft_printf_int_decimal.c
+#find sources (only in libft/)
+SRCS = ${shell find ./libft -name "*.c"}
 
-OBJS = ${SRCS:.c=.o}
+#find sources (all)
+#SRCS = ${shell find . -name "*.c"}
 
+#find libftprintf sources specifically
+PSRCS = ${filter libftprintf/%,${SRCS}}
+
+#object directory
+OBJ_DIR = OBJS/
+
+#convert c files into object files
+OBJS = ${SRCS:%.c=${OBJ_DIR}%.o}
+
+#convert c files into object files
+POBJS = ${PSRCS:%.c=${OBJ_DIR}%.o}
+
+#program name (library)
 NAME = libftprintf.a
 
+#program name (executable)
+#NAME = libftprintf
+
+#make into library file
 LIBC = ar rcs
 
+#compiler
 CC = gcc
 
-RM = rm -f
+#remove
+RM = rm -rf
 
+#flags
 CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
+#make directories for object files
+MK_DIR = mkdir -p ${@D}
+
+#make object files
+${OBJ_DIR}%.o: %.c
+	${MK_DIR}
 	${CC} ${CFLAGS} -c $< -o $@
 
-${NAME}: ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
+#make project into program (library)
+${NAME}: ${OBJS} ${POBJS}
+	${MK_DIR}
+	${LIBC} ${NAME} ${OBJS} ${POBJS}
 
+#make project into program (executable)
+#${NAME}: ${OBJS} ${POBJS}
+#	${MK_DIR}
+#	${CC} -o ${NAME} ${OBJS} ${POBJS}
+#	chmod +x ${NAME}
+
+#make
 all: ${NAME}
 
+#clean object files and directories
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJ_DIR}
 
+#clean everything that was made
 fclean: clean
 	${RM} ${NAME} ${CNAME}
 
+#remake
 re: fclean all
 
-CNAME = libft.so
+#custom name (only relevant for testing libft)
+#CNAME = libft.so
 
-so: ${OBJS}
-	${CC} -nostartfiles -shared -o ${CNAME} ${OBJS}
+#testing
+#so: ${POBJS}
+#	${CC} -nostartfiles -shared -o ${CNAME} ${POBJS}
 
+#targets
 .PHONY: all clean fclean re so

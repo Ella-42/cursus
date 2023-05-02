@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ptr.c                                    :+:      :+:    :+:   */
+/*   ft_printf_unsigned_int.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 16:31:03 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/01/30 16:41:56 by lpeeters         ###   ########.fr       */
+/*   Created: 2023/01/17 16:35:34 by lpeeters          #+#    #+#             */
+/*   Updated: 2023/05/02 18:36:39 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	len_ptr(uintptr_t nb)
+int	ft_unsigned_len(unsigned int nb)
 {
 	int	len;
 
@@ -20,39 +20,43 @@ int	len_ptr(uintptr_t nb)
 	while (nb != 0)
 	{
 		len++;
-		nb = nb / 16;
+		nb = nb / 10;
 	}
 	return (len);
 }
 
-void	ft_put_ptr(uintptr_t nb)
+char	*ft_uitoa(unsigned int nb)
 {
-	if (nb >= 16)
+	char	*str;
+	int		len;
+
+	len = ft_unsigned_len(nb);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (0);
+	str[len] = '\0';
+	while (nb != 0)
 	{
-		ft_put_ptr(nb / 16);
-		ft_put_ptr(nb % 16);
+		str[len - 1] = nb % 10 + 48;
+		nb = nb / 10;
+		len--;
 	}
-	else
-	{
-		if (nb <= 9)
-			ft_putchar((nb + '0'));
-		else
-			ft_putchar((nb - 10 + 'a'));
-	}
+	return (str);
 }
 
-int	ft_putptr(uintptr_t ptr)
+int	ft_putunsigned(unsigned int nb)
 {
-	int	char_printed;
+	int		char_printed;
+	char	*str;
 
 	char_printed = 0;
-	if (ptr == 0)
-		char_printed += write(1, "(nil)", 5);
+	if (nb == 0)
+		char_printed += write(1, "0", 1);
 	else
 	{
-		char_printed += write(1, "0x", 2);
-		ft_put_ptr(ptr);
-		char_printed += len_ptr(ptr);
+		str = ft_uitoa(nb);
+		char_printed += ft_putstr(str);
+		free(str);
 	}
 	return (char_printed);
 }
