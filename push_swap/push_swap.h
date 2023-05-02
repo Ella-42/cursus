@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 11:42:28 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/28 21:39:55 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:27:09 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 typedef struct node
 {
 	int			val;
-	int			i;
+	int			index;
 	struct node	*next;
 }				t_node;
 
@@ -192,14 +192,34 @@ void	algo5(t_node **stack_a);
 /*         algorithm.c          */
 /********************************/
 
+/*find the position of the last number of interest*/
+int		rev_num_pos(t_node **stack_a, int size, int og_len, int len);
+
+/*find the position of the first number of interest*/
+int		num_pos(t_node **stack_a, int size, int og_len);
+
 /*compare moves to decide which rotate to use*/
-void	smart_rotate(t_node **stack_a, t_node **stack_b, int size, int og_len);
+void	smart_rotate_a(t_node **stack_a, t_node **stack_b,
+			int size, int og_len);
 
 /*sort numbers into chunks*/
-void	sort_chunk(t_node **a, t_node **b, int len, int x);
+void	sort_chunk(t_node **stack_a, t_node **stack_b, int len, int x);
 
 /*algorithm for any amount of numbers bigger than 5*/
 void	algo(t_node **stack_a, t_node **stack_b, int len);
+
+/********************************/
+/*            sort.c            */
+/********************************/
+
+/*find the position of the maximum value*/
+int		max_num_pos(t_node **stack_b, int max_val);
+
+/*compare moves to decide which rotate to use*/
+void	smart_rotate_b(t_node **stack_b, t_node **stack_a, int max_val);
+
+/*push maximum value from stack b to top of stack a untill it is empty*/
+void	sort(t_node **stack_b, t_node **stack_a);
 
 /********************************/
 /*           index.c            */
@@ -277,7 +297,8 @@ void	rrb(t_node **stack_b);
 
 /*traverse to second to last node*/
 void	to_second_to_last(t_node **last_node_a, t_node **last_node_b,
-			t_node **second_to_last_node_a, t_node **second_to_last_node_b);
+			t_node **second_to_last_node_a,
+			t_node **second_to_last_node_b);
 
 /*rotates both stack a and b down*/
 void	rrr(t_node **stack_a, t_node **stack_b);

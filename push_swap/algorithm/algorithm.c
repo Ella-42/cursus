@@ -6,15 +6,15 @@
 /*   By: lpeeters <lpeeters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 17:25:49 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/04/28 21:37:15 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:27:13 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/**/
+/*find the position of the last number of interest*/
 
-int	tmp2(t_node **stack_a, int size, int og_len, int len)
+int	rev_num_pos(t_node **stack_a, int size, int og_len, int len)
 {
 	t_node	*current;
 	int		rev_num;
@@ -27,7 +27,7 @@ int	tmp2(t_node **stack_a, int size, int og_len, int len)
 	{
 		if (count == len - size)
 			break ;
-		else if (current->i < og_len - size)
+		else if (current->index < og_len - size)
 		{
 			count++;
 			rev_num++;
@@ -39,9 +39,9 @@ int	tmp2(t_node **stack_a, int size, int og_len, int len)
 	return (rev_num);
 }
 
-/**/
+/*find the position of the first number of interest*/
 
-int	tmp(t_node **stack_a, int size, int og_len)
+int	num_pos(t_node **stack_a, int size, int og_len)
 {
 	t_node	*current;
 	int		number;
@@ -50,7 +50,7 @@ int	tmp(t_node **stack_a, int size, int og_len)
 	number = 0;
 	while (current != NULL)
 	{
-		if (current->i < og_len - size)
+		if (current->index < og_len - size)
 			break ;
 		else
 			number++;
@@ -61,19 +61,16 @@ int	tmp(t_node **stack_a, int size, int og_len)
 
 /*compare moves to decide which rotate to use*/
 
-void	smart_rotate(t_node **stack_a, t_node **stack_b, int size, int og_len)
+void	smart_rotate_a(t_node **stack_a, t_node **stack_b, int size, int og_len)
 {
 	int	len;
 	int	number;
 	int	rev_num;
 
 	len = ft_stack_len(stack_a);
-	number = tmp(stack_a, size, og_len);
-	rev_num = tmp2(stack_a, size, og_len, len);
-//	print_index(stack_a);
-//	ft_printf("number: %d\n", number);
+	number = num_pos(stack_a, size, og_len);
+	rev_num = rev_num_pos(stack_a, size, og_len, len);
 	rev_num = len - rev_num + 1;
-//	ft_printf("rev_num: %d\n", rev_num);
 	if (rev_num < number)
 	{
 		while (rev_num-- > 0)
@@ -94,7 +91,7 @@ void	sort_chunk(t_node **stack_a, t_node **stack_b, int len, int size)
 	og_len = len;
 	while (len > size)
 	{
-		smart_rotate(stack_a, stack_b, size, og_len);
+		smart_rotate_a(stack_a, stack_b, size, og_len);
 		len = ft_stack_len(stack_a);
 	}
 }
@@ -104,17 +101,20 @@ void	sort_chunk(t_node **stack_a, t_node **stack_b, int len, int size)
 void	algo(t_node **stack_a, t_node **stack_b, int len)
 {
 	int	size;
-	int	z;
+	int	div;
 
 	index_stack(stack_a, len);
 	if (len < 101)
-		z = 5;
+		div = 4;
 	else
-		z = 10;
-	size = len - (len / z);
+		div = 13;
+	size = len - (len / div);
 	while (size >= 0)
 	{
 		sort_chunk(stack_a, stack_b, len, size);
-		size -= len / z;
+		size -= len / div;
 	}
+	while (*stack_a != NULL)
+		pb(stack_b, stack_a);
+	sort(stack_b, stack_a);
 }
