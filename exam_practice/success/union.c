@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 21:36:13 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/05/22 23:18:02 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:30:27 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 	char	*str;
+	char	written[ft_strlen(av[1]) + ft_strlen(av[2]) + 1];
 
+	if (ac < 3)
+		return (0);
 	if (ac == 3)
 	{
-		char	written[ft_strlen(av[1]) + ft_strlen(av[2]) + 1];
 		i = ft_strlen(av[1]);
 		j = 0;
 		str = av[1];

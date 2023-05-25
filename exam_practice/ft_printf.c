@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:12:14 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/05/23 21:03:35 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/25 21:33:56 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,52 +16,96 @@
 
 #include <stdio.h>
 
-va_list	g_test;
+int	cwrite(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_itoa(int i, int count)
+{
+	if (i == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		count += 11;
+		return (count);
+	}
+	if (i < 0)
+	{
+		count += cwrite('-');
+		i = i * -1;
+	}
+	if (i > 9)
+	{
+		count = ft_itoa(i / 10, count);
+		count += cwrite((i % 10) + 48);
+	}
+	else
+		count += cwrite(i + 48);
+	return (count);
+}
 
 int	ft_printf(const char *format, ...)
 {
 	size_t	i;
-//	size_t	j;
+	size_t	j;
+	size_t	count;
 	char	*str;
+	va_list	vlist;
+	int	num;
+//	unsigned int	hex;
 
 	i = 0;
-	va_start(g_test, format);
+	count = 0;
+//	hex = 0;
+	va_start(vlist, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			write(1, &format[i], 1);
+			count += cwrite(format[i]);
 		if (format[i] == '%')
 		{
-			i += 2;
-			if (i == 's')
+			i++;
+			if (format[i] == 's')
 			{
-				str = va_arg(g_test, char *);
-				printf("%s", str);
-/*				j = 0;
+				str = va_arg(vlist, char *);
+				if (!str)
+				{
+					write(1, "(null)", 6);
+					return (6);
+				}
+				j = 0;
 				while (str[j])
 				{
-//					write(1, "testing", 7);
-//					write(1, &str[j], 1);
+					count += cwrite(str[j]);
 					j++;
 				}
-*/			}
-			else if (i == 'd')
-				va_arg(g_test, int);
-			else if (i == 'x')
-				va_arg(g_test, int);
+			}
+			else if (format[i] == 'd')
+			{
+				num = va_arg(vlist, int);
+				count = ft_itoa(num, count);
+			}
+			else if (format[i] == 'x')
+				/*hex = */va_arg(vlist, unsigned int);
 		}
 		i++;
 	}
-	va_end(g_test);
-	return (0);
+	va_end(vlist);
+	return (count);
 }
 
 int	main(void)
 {
-	char	*str;
-
-	str = "string";
+//	char	*str;
+	int	num = -2147483648;
+//	str = ;
 //	printf("test: %s", str);
-	ft_printf("test: %s", str);
+	printf("\nreturn: %i\n", ft_printf("Magic %s is %d", "number", num));
+	printf("\n=========================================================\n\n");
+	printf("printf:\n");
+	printf("\nreturn: %i\n", printf("Magic %s is %d", "number", num));
 //	ft_printf("test: \n");
+//	i += 48;
+//	write(1, &i, 1);
 }
