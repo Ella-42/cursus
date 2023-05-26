@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:12:14 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/05/25 21:33:56 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/26 18:58:28 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,51 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#include <stdio.h>
-
 int	cwrite(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_itoa(int i, int count)
+int	ft_itoa(int num, int count)
 {
-	if (i == -2147483648)
+	if (num == -2147483648)
 	{
 		write(1, "-2147483648", 11);
 		count += 11;
 		return (count);
 	}
-	if (i < 0)
+	if (num < 0)
 	{
 		count += cwrite('-');
-		i = i * -1;
+		num = num * -1;
 	}
-	if (i > 9)
+	if (num > 9)
 	{
-		count = ft_itoa(i / 10, count);
-		count += cwrite((i % 10) + 48);
+		count = ft_itoa(num / 10, count);
+		count += cwrite((num % 10) + 48);
 	}
 	else
-		count += cwrite(i + 48);
+		count += cwrite(num + 48);
+	return (count);
+}
+
+int	ft_hex(unsigned int hex, int count)
+{
+	if (hex == 0)
+		count += write(1, "0", 1);
+	else if (hex > 15)
+	{
+		count = ft_hex(hex / 16, count);
+		count = ft_hex(hex % 16, count);
+	}
+	else
+	{
+		if (hex < 10)
+			count += cwrite(hex + 48);
+		else
+			count += cwrite(hex - 10 + 'a');
+	}
 	return (count);
 }
 
@@ -53,11 +70,11 @@ int	ft_printf(const char *format, ...)
 	char	*str;
 	va_list	vlist;
 	int	num;
-//	unsigned int	hex;
+	unsigned int	hex;
 
 	i = 0;
 	count = 0;
-//	hex = 0;
+	hex = 0;
 	va_start(vlist, format);
 	while (format[i] != '\0')
 	{
@@ -87,25 +104,37 @@ int	ft_printf(const char *format, ...)
 				count = ft_itoa(num, count);
 			}
 			else if (format[i] == 'x')
-				/*hex = */va_arg(vlist, unsigned int);
+			{
+				hex = va_arg(vlist, unsigned int);
+				count = ft_hex(hex, count);
+			}
 		}
 		i++;
 	}
 	va_end(vlist);
 	return (count);
 }
+/*
+#include <stdio.h>
 
 int	main(void)
 {
 //	char	*str;
-	int	num = -2147483648;
+//	int	num = -2147483648;
+	unsigned int	hex = -42;
 //	str = ;
 //	printf("test: %s", str);
-	printf("\nreturn: %i\n", ft_printf("Magic %s is %d", "number", num));
+	printf("\nreturn: %i\n", ft_printf("Hexadecimal for %d is %x\n", 42, hex));
 	printf("\n=========================================================\n\n");
 	printf("printf:\n");
-	printf("\nreturn: %i\n", printf("Magic %s is %d", "number", num));
+	printf("\nreturn: %i\n", printf("Hexadecimal for %d is %x\n", 42, hex));
 //	ft_printf("test: \n");
 //	i += 48;
 //	write(1, &i, 1);
 }
+
+int	main(void)
+{
+	printf("I - %d\n", printf("qwerty %s\t%d\t%x\n", "stroka1", 2147148145, -42));
+  	printf("II - %d\n", ft_printf("qwerty %s\t%d\t%x\n", "stroka2", 2147148145, -42));
+}*/
