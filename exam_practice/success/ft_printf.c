@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 14:12:14 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/05/26 18:58:28 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/30 13:09:26 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_printf(const char *format, ...)
 	size_t	count;
 	char	*str;
 	va_list	vlist;
-	int	num;
+	int		num;
 	unsigned int	hex;
 
 	i = 0;
