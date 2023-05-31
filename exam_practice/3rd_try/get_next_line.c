@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 14:50:52 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/05/31 16:58:03 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/05/31 20:44:53 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*get_next_line(int fd)
 	while (read(fd, word, 1) > 0 && *word++ != '\n');
 	return ((word > line) ? (*word = 0, line) : (free(line), NULL));
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -33,4 +33,4 @@ int	main(void)
 		line = get_next_line(0);
 	}
 	return (0);
-}
+}*/
