@@ -6,7 +6,7 @@
 /*   By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 17:27:51 by lpeeters          #+#    #+#             */
-/*   Updated: 2023/06/05 18:40:05 by lpeeters         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:31:20 by lpeeters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	main(int ac, char **av)
 		printf("Calculate what? You failed to give enough arguments!\n");
 		return (1);
 	}
+	else if (ac > 4)
+	{
+		printf("Sorry, the option to calculate with this many arguments is currently not yet implemented.\nIf you bother Ella enough with this, she might actually do it.\n");
+		return (1);
+	}
 	else
 	{
 		float n1 = atoi(av[1]);
@@ -30,23 +35,32 @@ int	main(int ac, char **av)
 			r = n1 + n2;
 		else if (s == '-')
 			r = n1 - n2;
+		else if (s == 'x' || s == '*')
+			r = n1 * n2;
+		else if (s == '%')
+		{
+			if (n2 == 0)
+			{
+				printf("Really? Modulo zero? You must be the brightest of students...\n");
+				return (1);
+			}
+			r = (int)n1 % (int)n2;
+		}
 		else if (s == '/')
 		{
 			if (n2 == 0)
 			{
-				printf("Really? Divide by 0? You must be the brightest of students...\n");
+				printf("Really? Divided by zero? You must be the brightest of students...\n");
 				return (1);
 			}
 			r = n1 / n2;
 		}
-		else if (s == 'x' || s == '*')
-			r = n1 * n2;
 		else
 		{
 			printf("You're joking... right?\n");
 			return (1);
 		}
-		printf("Outcome: %g\n", r);
+		printf("Result: %g\n", r);
 	}
 	return (0);
 }
