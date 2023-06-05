@@ -7,9 +7,6 @@
 [submodule "pipex"]
 	path = pipex
 	url = git@github.com:LarsCampus19/pipex.git
-[submodule "libft"]
-	path = libft
-	url = git@github.com:LarsCampus19/libft.git
 [submodule "exam_practice"]
 	path = exam_practice
 	url = git@github.com:LarsCampus19/exam_practice.git
