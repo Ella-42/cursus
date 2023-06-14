@@ -6,7 +6,7 @@
 #    By: lpeeters <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/05 18:40:35 by lpeeters          #+#    #+#              #
-#    Updated: 2023/06/05 18:46:55 by lpeeters         ###   ########.fr        #
+#    Updated: 2023/06/14 03:57:33 by lpeeters         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,4 +17,4 @@ echo what would you like to calculate?
 read pattern
 
 #run the calculator program on the specified input
-~/Documents/github/tools/calculator $pattern
+~/Documents/github/tools/calculator/calculator $pattern
