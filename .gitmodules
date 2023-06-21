@@ -19,3 +19,6 @@
 [submodule "tools/key_logger"]
 	path = tools/key_logger
 	url = git@github.com:LarsCampus19/Key_Logger_and_Converter.git
+[submodule "test/get next line"]
+	path = test/get next line
+	url = git@vogsphere-v2.s19.be:vogsphere/intra-uuid-530cf94f-f2ac-429b-82ed-824c8e8f1bee-4635593-lpeeters
