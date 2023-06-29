@@ -1,5 +1,15 @@
 #!/bin/zsh
 
+# Command to kill all terminals
+/nfs/homes/lpeeters/.local/bin/xdotool search --class "terminator" windowkill %@
+/nfs/homes/lpeeters/.local/bin/xdotool search --class "Terminal" windowkill %@
+
+# Command to close Firefox
+killall firefox
+
+# Wait for terminals and Firefox to close
+sleep 3
+
 # Lock screen
 dm-tool lock
 
