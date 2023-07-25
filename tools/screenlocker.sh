@@ -28,4 +28,4 @@ do
 done
 
 # Run the startup script
-/nfs/homes/lpeeters/.local/bin/xdotool key control+alt+t
+#/nfs/homes/lpeeters/.local/bin/xdotool key control+alt+t
