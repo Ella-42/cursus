@@ -9,3 +9,5 @@ find . -name "$pattern" | while read file; do
   echo -e "\n==================== $file ====================\n"
   tail -n +15 "$file"
 done > ~/log
+
+vim ~/log
