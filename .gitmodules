@@ -16,6 +16,3 @@
 [submodule "tools/key_logger"]
 	path = tools/key_logger
 	url = git@github.com:LarsCampus19/Key_Logger_and_Converter.git
-[submodule "so_long"]
-	path = so_long
-	url = https://github.com/LarsCampus19/so_long.git
