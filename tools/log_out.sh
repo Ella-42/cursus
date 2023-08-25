@@ -5,7 +5,7 @@
 
 
 # Terminate Firefox
-/usr/bin/pkill firefox
+pkill firefox
 
 # Terminate the session to log out
-/usr/bin/pkill gnome-session
+pkill gnome-session
