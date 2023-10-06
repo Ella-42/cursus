@@ -14,7 +14,7 @@ else
 	if [ $? -eq 0 ]; then
 		
 		# Send the output to the log file
-		echo "$output" > ~/log
+		printf "%s\n" "$output" > ~/log
 
 		# Open the log file in Vim
 		vim ~/log
