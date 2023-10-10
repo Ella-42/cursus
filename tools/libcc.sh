@@ -17,8 +17,10 @@ find . -name "$pattern" -not -path "*libft*" | while read file; do
   first_line=$(head -n 1 "$file")
 
   # Compare the first line to the first line of the 42 header. If these match, remove it, else, do not
-  if [ "$first_line" = "/* ************************************************************************** */" ]; then
+  if [ "$first_line" = "/* ************************************************************************** */" ] || [ "$first_line" = "# **************************************************************************** #" ]; then
     tail -n +15 "$file"
+  elif [ "$first_line" = "# **************************************************************************** #" ]; then
+	tail -n +13 "$file"
   else
     tail -n +4 "$file"
   fi
