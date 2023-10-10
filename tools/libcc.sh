@@ -11,18 +11,20 @@ printf "\033[2J\033[H"
 find . -name "$pattern" -not -path "*libft*" | while read file; do
   
   # Print where this file was found
-  echo -e "\n==================== $file ====================\n"
+  echo "\n==================== $file ====================\n"
 
   # Fetch the first line of the file
   first_line=$(head -n 1 "$file")
 
   # Compare the first line to the first line of the 42 header. If these match, remove it, else, do not
-  if [[ "$first_line" == "/* ************************************************************************** */" ]]; then
+  if [ "$first_line" = "/* ************************************************************************** */" ]; then
     tail -n +15 "$file"
   else
-    tail -n +3 "$file"
+    tail -n +4 "$file"
   fi
 done > ~/log
+
+
 
 # Open the result in vim
 vim ~/log
