@@ -12,48 +12,30 @@
 
 #include "ft_printf.h"
 #include <stdio.h>
-#include <limits.h>
 
 int	main(void)
 {
-/*	printf(" %p ", (void *)-1);
-	printf("\n");
-        printf(" %p ", (void *)1);
-	printf("\n");
-        printf(" %p ", (void *)15);
-	printf("\n");
-        printf(" %p ", (void *)16);
-	printf("\n");
-        printf(" %p ", (void *)17);
-	printf("\n");
-        printf(" %p %p ", (void *)LONG_MIN, (void *)LONG_MAX);
-	printf("\n");
-        printf(" %p %p ", (void *)INT_MIN, (void *)INT_MAX);
-	printf("\n");
-        printf(" %p %p ", (void *)ULONG_MAX, (void *)-ULONG_MAX);
-	printf("\n");
-        printf(" %p %p ", (void *)0, (void *)0);
-	printf("\n");
-	ft_printf(" %p ", (void *)-1);
-	printf("\n");
-        ft_printf(" %p ", (void *)1);
-	printf("\n");
-        ft_printf(" %p ", (void *)15);
-	printf("\n");
-        ft_printf(" %p ", (void *)16);
-	printf("\n");
-        ft_printf(" %p ", (void *)17);
-	printf("\n");
-        ft_printf(" %p %p ", (void *)LONG_MIN, (void *)LONG_MAX);
-	printf("\n");
-        ft_printf(" %p %p ", (void *)INT_MIN, (void *)INT_MAX);
-	printf("\n");
-        ft_printf(" %p %p ", (void *)ULONG_MAX, (void *)-ULONG_MAX);
-	printf("\n");
-        ft_printf(" %p %p ", (void *)0, (void *)0);
-	printf("\n");
-*/
-/*	printf("%-16p\n", NULL);
-	ft_printf("%-16p\n", NULL);
-*/
+	char	*null_str;
+
+	printf("ret: %i\n", ft_printf("test\n"));
+	printf("ret: %i\n", printf("test\n"));
+	null_str = NULL;
+	printf("ret: %i\n", ft_printf("%s\n", null_str));
+	printf("ret: %i\n", printf("%s\n", null_str));
+	printf("ret: %i\n", ft_printf("%s\n", ""));
+	printf("ret: %i\n", printf("%s\n", ""));
+	printf("ret: %i\n", ft_printf("%i\n", 2147483647));
+	printf("ret: %i\n", printf("%i\n", 2147483647));
+	printf("ret: %i\n", ft_printf("%s", "test\n"));
+	printf("ret: %i\n", printf("%s", "test\n"));
+	printf("ret: %i\n", ft_printf("testing: %s", "test\n"));
+	printf("ret: %i\n", printf("testing: %s", "test\n"));
+	printf("ret: %i\n", ft_printf("%s, %i\n", "test", 907));
+	printf("ret: %i\n", printf("%s, %i\n", "test", 907));
+	printf("ret: %i\n", ft_printf("%p\n", NULL));
+	printf("ret: %i\n", printf("%p\n", NULL));
+	printf("ret: %i\n", ft_printf("%p\n", &null_str));
+	printf("ret: %i\n", printf("%p\n", &null_str));
+	printf("ret: %i\n", ft_printf("test: %c%c%c%c%c", 't', 'e', 's', 't', '\n'));
+	printf("ret: %i\n", printf("test: %c%c%c%c%c", 't', 'e', 's', 't', '\n'));
 }
