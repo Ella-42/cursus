@@ -25,3 +25,4 @@
 [submodule "minishell"]
 	path = minishell
 	url = git@github.com:Wannieboy07/minishell.git
+	branch = cursus
