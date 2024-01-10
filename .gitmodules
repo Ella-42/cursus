@@ -22,7 +22,3 @@
 [submodule "philosophers"]
 	path = philosophers
 	url = git@github.com:LarsCampus19/philosophers.git
-[submodule "minishell"]
-	path = minishell
-	url = git@github.com:Wannieboy07/minishell.git
-	branch = cursus
