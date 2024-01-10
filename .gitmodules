@@ -25,3 +25,6 @@
 [submodule "minishell"]
 	path = minishell
 	url = git@github.com:Ella-42/minishell.git
+[submodule "cpp"]
+	path = cpp
+	url = git@github.com:Ella-42/cpp.git
