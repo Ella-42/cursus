@@ -10,7 +10,7 @@ read FUNCTION
 FUNCTION_NAME=$(echo $FUNCTION | awk '{print $NF}')
 
 # Search for the function definition in files and retrieve the file name
-FILE=$(find . -type f -name "*.c" -not -path "*mlx*" -exec grep -l -E "^[[:alnum:]_]+\s*\**$FUNCTION_NAME" {} \; 2>/dev/null)
+FILE=$(find . -type f -name "*.c" -o -type f -name "*.cpp" -not -path "*mlx*" -exec grep -l -E "^[[:alnum:]_]+\s*\**$FUNCTION_NAME" {} \; 2>/dev/null)
 
 # Return an error if no function was found
 if [ -z "$FILE" ]; then
