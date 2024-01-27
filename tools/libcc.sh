@@ -29,4 +29,4 @@ done > ~/log
 
 
 # Open the result in vim
-vim ~/log
+nvim ~/log
