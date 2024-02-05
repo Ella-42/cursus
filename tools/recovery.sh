@@ -8,4 +8,4 @@ cp ~/backup/.zshrc ~/
 cp -r ~/backup/view ~/.vim/
 
 # Run the custom Vim update script
-sh ~/Documents/github/tools/update_custom_vimconfig.sh
+zsh ~/Documents/github/tools/update_custom_vimconfig.sh
