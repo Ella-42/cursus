@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Backup script
 
 # If we're in the windows 11 environment on wsl2, save backup in appropriate folder
@@ -9,21 +11,25 @@ if [ -f ~/.env_w11 ]; then
 	echo '=========================Backup=========================';
 	cd ~/backup/;
 	git add .;
-	git commit -m "Automatic backup";
+	git commit -m "Automatic backup :heart:";
 	git push;
 	echo '========================================================';
 	cd $dir;
+
 # Else, just run the script like normal
 else
 	cp -r ~/.config/terminator/ ~/backup/;
+	cp -r ~/.config/nvim/init.vim ~/backup/;
+	cp -r ~/.vim/view/ ~/backup/;
 	cp -r ~/.vimrc ~/backup/;
 	cp -r ~/.zshrc ~/backup/;
-	cp -r ~/.vim/view/ ~/backup/;
+	cp -r ~/.valgrindrc ~/backup/;
+	cp -r ~/.gdbinit ~/backup/;
 	dir=$(pwd);
 	echo '=========================Backup=========================';
 	cd ~/backup/;
 	git add .;
-	git commit -m "Automatic backup";
+	git commit -m "Automatic backup :heart:";
 	git push;
 	echo '========================================================';
 	cd $dir;
