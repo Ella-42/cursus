@@ -19,12 +19,12 @@ if [ -f ~/.env_w11 ]; then
 # Else, just run the script like normal
 else
 	cp -r ~/.config/terminator/ ~/backup/;
-	cp -r ~/.config/nvim/init.vim ~/backup/;
 	cp -r ~/.vim/view/ ~/backup/;
-	cp -r ~/.vimrc ~/backup/;
-	cp -r ~/.zshrc ~/backup/;
-	cp -r ~/.valgrindrc ~/backup/;
-	cp -r ~/.gdbinit ~/backup/;
+	cp ~/.config/nvim/init.vim ~/backup/;
+	cp ~/.vimrc ~/backup/;
+	cp ~/.zshrc ~/backup/;
+	cp ~/.valgrindrc ~/backup/;
+	cp ~/.gdbinit ~/backup/;
 	dir=$(pwd);
 	echo '=========================Backup=========================';
 	cd ~/backup/;
