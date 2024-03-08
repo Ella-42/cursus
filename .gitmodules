@@ -28,3 +28,6 @@
 [submodule "cpp"]
 	path = cpp
 	url = git@github.com:Ella-42/cpp.git
+[submodule "netpractice"]
+	path = netpractice
+	url = git@github.com:Ella-42/netpractice.git
