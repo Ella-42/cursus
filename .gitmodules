@@ -31,3 +31,6 @@
 [submodule "netpractice"]
 	path = netpractice
 	url = git@github.com:Ella-42/netpractice.git
+[submodule "cub3d"]
+	path = cub3d
+	url = git@github.com:Ella-42/cub3d.git
