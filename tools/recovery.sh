@@ -9,6 +9,3 @@ cp ~/backup/.zshrc ~/
 cp ~/backup/.valgrindrc ~/
 cp ~/backup/.gdbinit ~/
 cp ~/backup/init.vim ~/.config/nvim/
-
-# Run the custom Vim update script
-zsh ~/Documents/github/tools/update_custom_vimconfig.sh

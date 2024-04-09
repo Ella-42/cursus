@@ -6,4 +6,4 @@
 cp ~/.vimrc ~/.cvimrc
 
 # Run the script to toggle the Norm plugin off
-zsh ~/Documents/github/tools/norm.sh
+zsh ~/git/tools/norm.sh
