@@ -1,27 +1,27 @@
 [submodule "push_swap"]
 	path = push_swap
-	url = git@github.com:LarsCampus19/push_swap.git
+	url = git@github.com:Ella-42/push_swap.git
 [submodule "test/push_swap"]
 	path = test/push_swap
 	url = git@vogsphere-v2.s19.be:vogsphere/intra-uuid-f3a1ae3c-22e3-46a2-b2f2-57a28e00cbd6-4736000-lpeeters
 [submodule "pipex"]
 	path = pipex
-	url = git@github.com:LarsCampus19/pipex.git
+	url = git@github.com:Ella-42/pipex.git
 [submodule "exam_practice"]
 	path = exam_practice
-	url = git@github.com:LarsCampus19/exam_practice.git
+	url = git@github.com:Ella-42/exam_practice.git
 [submodule "libft"]
 	path = libft
-	url = git@github.com:LarsCampus19/libft.git
+	url = git@github.com:Ella-42/libft.git
 [submodule "so_long"]
 	path = so_long
-	url = git@github.com:LarsCampus19/so_long.git
+	url = git@github.com:Ella-42/so_long.git
 [submodule "tools/key_logger"]
 	path = tools/key_logger
-	url = git@github.com:LarsCampus19/Key_Logger_and_Converter.git
+	url = git@github.com:Ella-42/Key_Logger_and_Converter.git
 [submodule "philosophers"]
 	path = philosophers
-	url = git@github.com:LarsCampus19/philosophers.git
+	url = git@github.com:Ella-42/philosophers.git
 [submodule "minishell"]
 	path = minishell
 	url = git@github.com:Ella-42/minishell.git
