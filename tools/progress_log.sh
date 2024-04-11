@@ -17,4 +17,4 @@ if [ $# -gt 0 ]; then
 fi
 
 # Return N number commits with their dates in front of them
-git log -n$N --pretty=format:"%h %ad %s" --date=short | cut -d" " -f2- | sed 's/(auto_push)$//'
+git log -n$N --pretty=format:"%h %ad %s" --date=short | cut -d" " -f2- | sed 's/(auto push :heart:)$//'
