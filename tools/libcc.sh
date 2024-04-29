@@ -4,9 +4,6 @@
 echo "Enter a search pattern:"
 read pattern
 
-# Clear the screen
-printf "\033[2J\033[H"
-
 # Print contents of all found files that match the search pattern to the log file
 find . -name "$pattern" -not -path "*libft*" | while read file; do
   
@@ -25,8 +22,6 @@ find . -name "$pattern" -not -path "*libft*" | while read file; do
     tail -n +4 "$file"
   fi
 done > ~/log
-
-
 
 # Open the result in vim
 nvim ~/log
