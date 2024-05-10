@@ -5,7 +5,7 @@ echo "Enter a search pattern:"
 read pattern
 
 # Print contents of all found files that match the search pattern to the log file
-find . -name "$pattern" -not -path "*libft*" | while read file; do
+find . -name "$pattern" -not -path "*libft*" -a -not -path "*mlx*" | while read file; do
   
   # Print where this file was found
   echo "\n==================== $file ====================\n"
