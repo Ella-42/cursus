@@ -5,7 +5,7 @@
 /nfs/homes/lpeeters/.local/bin/xdotool search --class "Terminal" windowkill %@
 
 # Command to close Firefox
-pkill firefox
+pkill waterfox
 
 # Wait for terminals and Firefox to close
 sleep 3
