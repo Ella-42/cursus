@@ -23,5 +23,5 @@ find . -name "$pattern" | while read file; do
   fi
 done > ~/log
 
-# Open the result in vim
+# Open the result in NeoVim
 nvim ~/log

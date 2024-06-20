@@ -7,7 +7,7 @@ if [ $# -eq 0 ]; then
 else
     # Make sure the argument provided was a number
     if ! [[ "$1" =~ ^[0-9]+$ ]]; then
-        echo "Error: Invalid argument, has to be a positive number"
+        echo "Error: Invalid argument, has to be a positive number" >&2
         exit 1
     fi
 
@@ -16,4 +16,5 @@ else
 fi
 
 # Return N number commits with their dates in front of them
-git log -n$N --pretty=format:"%h %ad %s" --date=short | cut -d " " -f2- | sed 's/(auto push :heart:)$//'
+git log -n$N --pretty=format:"%C(white)%s %C(blue)(%ar)" --color | sed 's/(auto push :heart:)//'
+echo

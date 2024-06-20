@@ -3,8 +3,8 @@
 # This file exists to make debugging easier by running the startup automatically
 
 # Error check the input
-if [ $# -lt 2 ]; then
-	echo "Expected arguments: <program_name> <program_argument(s)>"
+if [ $# -lt 1 ]; then
+	echo "Usage: arguments: <program_name> [program_argument(s)]" >&2
 	exit 1
 fi
 

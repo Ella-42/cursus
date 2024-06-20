@@ -13,7 +13,7 @@ else
 	# Validate it
 	if ! [ -d "$1" ]; then
 		# If invalid, throw an error and exit with failure
-		echo "Error: Invalid argument\nExpected: Directory"
+		echo "Usage: arguments: [directory]" >&2
 		exit 1
 	fi
 fi

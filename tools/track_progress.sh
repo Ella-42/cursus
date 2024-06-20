@@ -10,13 +10,13 @@ read FUNCTION
 FUNCTION_NAME=$(echo $FUNCTION | awk '{print $NF}')
 
 # Search for the function definition in files and retrieve the file name
-FILE=$(find . -type f -name "*.c" -o -type f -name "*.cpp" -not -path "*mlx*" -exec grep -l -E "^[[:alnum:]_]+\s*\**$FUNCTION_NAME" {} \; 2>/dev/null)
+FILE=$(find . \( -name "*.c" -o -name "*.cpp" \) -not -path "*mlx*" -exec grep -l -E "^[[:alnum:]_]+\s*\**$FUNCTION_NAME" {} \; 2>/dev/null)
 
 # Return an error if no function was found
 if [ -z "$FILE" ]; then
-    echo "Function '$FUNCTION' not found, check the spelling"
+    echo "Function '$FUNCTION' not found, check the spelling" >&2
     exit 1
 fi
 
 # Run command with the retrieved file name and function name
-git log -L :$FUNCTION_NAME:$FILE
+git log --reverse --pretty=format:"%C(blue)%ar, by: %an (%G?)%n%s%n" -L :$FUNCTION_NAME:$FILE

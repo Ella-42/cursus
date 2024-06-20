@@ -1,11 +1,11 @@
 #!/bin/zsh
 
 # Fetch the file name
-FILE=$(find ./ -name ".nfs*" -print)
+FILE=$(find . -name ".nfs*" -print)
 
 # Prompt an error of no .nfs file was found in current directory
 if [ -z "$FILE" ]; then
-	echo "no .nfs file was found in current directory"
+	echo "No .nfs file found." >&2
 	exit 1
 fi
 
@@ -14,7 +14,7 @@ PID=$(lsof -t $FILE)
 
 # Prompt an error if PID couldn't be fetched
 if [ -z "$PID" ]; then
-	echo "failed to retrieve PID"
+	echo "Failed to retrieve PID of '$FILE'." >&2
 	exit 1
 fi
 

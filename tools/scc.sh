@@ -23,5 +23,5 @@ find . -name "$pattern" -not -path "*libft*" -a -not -path "*mlx*" | while read 
   fi
 done > ~/log
 
-# Open the result in vim
+# Open the result in NeoVim
 nvim ~/log

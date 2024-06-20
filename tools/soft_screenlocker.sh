@@ -1,14 +1,20 @@
 #!/bin/zsh
 
+# Check if script can execute
+if ! dm-tool list-seats | grep -q "true"; then
+	# Quit while you're ahead
+	exit 1
+fi
+
 # Lock screen
 dm-tool lock
 
 # Wait for the system to be functional
-sleep 10
+sleep 3
 
 # Turn up the brightness
 i=0;
-while ((i < 35))
+while ((i < 25))
 do
 	sleep 0.1
 	/nfs/homes/lpeeters/.local/bin/xdotool keydown XF86MonBrightnessUp

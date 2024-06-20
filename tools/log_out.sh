@@ -4,8 +4,8 @@
 # Simple script to log out
 
 
-# Terminate Firefox
-pkill firefox
+# Terminate WaterFox
+pkill waterfox
 
 # Terminate the session to log out
 pkill gnome-session
