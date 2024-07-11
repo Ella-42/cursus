@@ -37,3 +37,6 @@
 [submodule "LastStand"]
 	path = LastStand
 	url = git@github.com:ahooghe/LastStand.git
+[submodule "Quanta"]
+	path = Quanta
+	url = git@github.com:alessandromrc/Quanta.git
