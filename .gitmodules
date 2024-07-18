@@ -40,3 +40,6 @@
 [submodule "Quanta"]
 	path = Quanta
 	url = git@github.com:alessandromrc/Quanta.git
+[submodule "irc"]
+	path = irc
+	url = git@github.com:ace-rake/ft_irc.git
