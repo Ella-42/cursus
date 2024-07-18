@@ -4,6 +4,6 @@
 
 while true; do
     clear
-    ls -lhA
+    ls -lhA | grep total
     sleep 1
 done
