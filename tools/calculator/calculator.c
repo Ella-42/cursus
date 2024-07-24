@@ -50,5 +50,4 @@ int	main(int ac, char **av)
 		}
 		printf("Result: %g\n", r);
 	}
-	return (0);
 }

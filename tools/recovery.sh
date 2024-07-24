@@ -3,9 +3,9 @@
 # Script to recover from the backup repo
 
 # Copy over files and folders
-cp -r ~/backup/view ~/.vim/
-cp ~/backup/.vimrc ~/
-cp ~/backup/.zshrc ~/
-cp ~/backup/.valgrindrc ~/
-cp ~/backup/.gdbinit ~/
-cp ~/backup/init.vim ~/.config/nvim/
+cp -ru ~/backup/view ~/.vim/
+cp -u ~/backup/.vimrc ~/
+cp -u ~/backup/.zshrc ~/
+cp -u ~/backup/.valgrindrc ~/
+cp -u ~/backup/.gdbinit ~/
+cp -u ~/backup/init.vim ~/.config/nvim/

@@ -7,8 +7,8 @@ if ! dm-tool list-seats | grep -q "true"; then
 fi
 
 # Command to kill all terminals
-/nfs/homes/lpeeters/.local/bin/xdotool search --class "terminator" windowkill %@
-/nfs/homes/lpeeters/.local/bin/xdotool search --class "Terminal" windowkill %@
+~/.local/bin/xdotool search --class "terminator" windowkill %@
+~/.local/bin/xdotool search --class "Terminal" windowkill %@
 
 # Command to close WaterFox
 pkill waterfox
@@ -27,11 +27,11 @@ i=0;
 while ((i < 25))
 do
 	sleep 0.1
-	/nfs/homes/lpeeters/.local/bin/xdotool keydown XF86MonBrightnessUp
+	~/.local/bin/xdotool keydown XF86MonBrightnessUp
 	sleep 0.1
-	/nfs/homes/lpeeters/.local/bin/xdotool keyup XF86MonBrightnessUp
+	~/.local/bin/xdotool keyup XF86MonBrightnessUp
 	((i++))
 done
 
 # Run the startup script
-/nfs/homes/lpeeters/.local/bin/xdotool key control+alt+t
+~/.local/bin/xdotool key control+alt+t
