@@ -34,9 +34,6 @@
 [submodule "cub3d"]
 	path = cub3d
 	url = git@github.com:Ella-42/cub3d.git
-[submodule "LastStand"]
-	path = LastStand
-	url = git@github.com:ahooghe/LastStand.git
 [submodule "Quanta"]
 	path = Quanta
 	url = git@github.com:alessandromrc/Quanta.git
