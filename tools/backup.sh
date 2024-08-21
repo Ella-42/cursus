@@ -25,6 +25,7 @@ else
 	cp -u ~/.zshrc ~/backup/;
 	cp -u ~/.valgrindrc ~/backup/;
 	cp -u ~/.gdbinit ~/backup/;
+	cp -u ~/git/retriever/.env ~/backup/;
 	dir=$(pwd);
 	echo '=========================Backup=========================';
 	cd ~/backup/;
