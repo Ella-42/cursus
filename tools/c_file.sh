@@ -19,7 +19,7 @@ else
 fi
 
 # Search for all C files in directory provided
-c_files=$(find $1 \( -name '*.c' -o -name '*.cpp' \) -not -path '*mlx*' -a -not -path '*lib*')
+c_files=$(find $1 \( -name '*.c' -o -name '*.cpp' -o -name '*.tpp' \) -not -path '*mlx*' -a -not -path '*lib*')
 
 # Check if any files were found
 if ! [ "$c_files" ]; then
