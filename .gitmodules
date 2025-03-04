@@ -42,7 +42,7 @@
 	url = git@github.com:ace-rake/ft_irc.git
 [submodule "transcendence"]
 	path = transcendence
-	url = git@github.com:Quinten-14/ft_transcendence.git
+	url = git@github.com:Ella-42/ft_trans.git
 [submodule "retriever"]
 	path = retriever
 	url = git@github.com:Ella-42/Retriever42.git
